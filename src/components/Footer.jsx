@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -9,9 +10,9 @@ const navigation = [
   {
     title: 'Work',
     links: [
-      { title: 'FamilyFund', href: '/work/family-fund' },
-      { title: 'Unseal', href: '/work/unseal' },
-      { title: 'Phobia', href: '/work/phobia' },
+      { title: 'Spekboom.org', href: '/work/spekboom' },
+      { title: 'Sloetree.co.uk', href: '/work/sloetree' },
+      { title: 'The Ridge Hout Bay', href: '/work/the-ridge' },
       {
         title: (
           <>
@@ -32,6 +33,17 @@ const navigation = [
     ],
   },
   {
+    title: 'Services',
+    links: [
+      { title: 'Web Development', href: '/services/web-development' },
+      { title: 'Application Development', href: '/services/app-development' },
+      { title: 'UX/UI Design', href: '/services/ux-ui-design' },
+      { title: 'Architectural Renders', href: '/services/architectural-renders' },
+      { title: 'Drone Photography', href: '/services/drone-photography' },
+      { title: 'Financial Modeling', href: '/services/financial-modeling' },
+    ]
+  },
+  {
     title: 'Connect',
     links: socialMediaProfiles,
   },
@@ -40,18 +52,18 @@ const navigation = [
 function Navigation() {
   return (
     <nav>
-      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-4">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
-            <div className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+            <div className="font-display text-sm font-semibold tracking-wider text-white">
               {section.title}
             </div>
-            <ul role="list" className="mt-4 text-sm text-neutral-700">
+            <ul role="list" className="mt-4 text-sm text-neutral-300">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
                   <Link
                     href={link.href}
-                    className="transition hover:text-neutral-950"
+                    className="transition hover:text-white"
                   >
                     {link.title}
                   </Link>
@@ -81,10 +93,10 @@ function ArrowIcon(props) {
 function NewsletterForm() {
   return (
     <form className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+      <h2 className="font-display text-sm font-semibold tracking-wider text-white">
         Sign up for our newsletter
       </h2>
-      <p className="mt-4 text-sm text-neutral-700">
+      <p className="mt-4 text-sm text-neutral-300">
         Subscribe to get the latest design news, articles, resources and
         inspiration.
       </p>
@@ -94,13 +106,13 @@ function NewsletterForm() {
           placeholder="Email address"
           autoComplete="email"
           aria-label="Email address"
-          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pr-20 pl-6 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
+          className="block w-full rounded-2xl border border-neutral-600 bg-neutral-800/50 py-4 pr-20 pl-6 text-base/6 text-white ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-white focus:ring-white/10 focus:outline-hidden"
         />
         <div className="absolute inset-y-1 right-1 flex justify-end">
           <button
             type="submit"
             aria-label="Submit"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-neutral-950 text-white transition hover:bg-neutral-800"
+            className="flex aspect-square h-full items-center justify-center rounded-xl bg-white text-neutral-950 transition hover:bg-neutral-200"
           >
             <ArrowIcon className="w-4" />
           </button>
@@ -112,23 +124,25 @@ function NewsletterForm() {
 
 export function Footer() {
   return (
-    <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
-      <FadeIn>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
-          <Navigation />
-          <div className="flex lg:justify-end">
-            <NewsletterForm />
+    <div className="bg-neutral-950 text-white">
+      <Container as="footer" className="pt-20 pb-12 sm:pt-32">
+        <FadeIn>
+          <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+            <Navigation />
+            <div className="flex lg:justify-end">
+              <NewsletterForm />
+            </div>
           </div>
-        </div>
-        <div className="mt-24 mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
-          <Link href="/" aria-label="Home">
-            <Logo className="h-8" fillOnHover />
-          </Link>
-          <p className="text-sm text-neutral-700">
-            © Studio Agency Inc. {new Date().getFullYear()}
-          </p>
-        </div>
-      </FadeIn>
-    </Container>
+          <div className="mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-700/60 pt-12">
+            <Link href="/" aria-label="Home">
+              <Logo className="h-8" fillOnHover invert />
+            </Link>
+            <p className="text-sm text-neutral-400">
+              © Spekboom Studio {new Date().getFullYear()} • Cape Town, South Africa
+            </p>
+          </div>
+        </FadeIn>
+      </Container>
+    </div>
   )
 }

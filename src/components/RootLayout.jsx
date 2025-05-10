@@ -47,12 +47,13 @@ function Header({
   onToggle,
   toggleRef,
   invert = false,
+  isHome = false,
 }) {
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)
 
   return (
-    <Container>
-      <div className="flex items-center justify-between">
+    <Container className={isHome ? "absolute top-0 left-0 right-0 z-50" : ""}>
+      <div className="flex items-center justify-between py-2">
         <Link
           href="/"
           aria-label="Home"
@@ -61,17 +62,17 @@ function Header({
         >
           <Logomark
             className="h-8 sm:hidden"
-            invert={invert}
+            invert={invert || isHome}
             filled={logoHovered}
           />
           <Logo
             className="hidden h-8 sm:block"
-            invert={invert}
+            invert={invert || isHome}
             filled={logoHovered}
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
+          <Button href="/contact" invert={invert || isHome}>
             Contact us
           </Button>
           <button
@@ -82,14 +83,14 @@ function Header({
             aria-controls={panelId}
             className={clsx(
               'group -m-2.5 rounded-full p-2.5 transition',
-              invert ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
+              invert || isHome ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
             )}
             aria-label="Toggle navigation"
           >
             <Icon
               className={clsx(
                 'h-6 w-6',
-                invert
+                invert || isHome
                   ? 'fill-white group-hover:fill-neutral-200'
                   : 'fill-neutral-950 group-hover:fill-neutral-700',
               )}
@@ -145,6 +146,8 @@ function RootLayoutInner({ children }) {
   let closeRef = useRef(null)
   let navRef = useRef(null)
   let shouldReduceMotion = useReducedMotion()
+  let pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     function onClick(event) {
@@ -165,9 +168,9 @@ function RootLayoutInner({ children }) {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      <header>
+      <header className={isHome ? 'absolute top-0 left-0 right-0 z-50 pt-16' : ''}>
         <div
-          className="absolute top-2 right-0 left-0 z-40 pt-14"
+          className="pt-16"
           aria-hidden={expanded ? 'true' : undefined}
           inert={expanded ? '' : undefined}
         >
@@ -176,6 +179,7 @@ function RootLayoutInner({ children }) {
             icon={MenuIcon}
             toggleRef={openRef}
             expanded={expanded}
+            isHome={isHome}
             onToggle={() => {
               setExpanded((expanded) => !expanded)
               window.setTimeout(() =>
@@ -188,8 +192,8 @@ function RootLayoutInner({ children }) {
         <motion.div
           layout
           id={panelId}
-          style={{ height: expanded ? 'auto' : '0.5rem' }}
-          className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
+          style={{ height: expanded ? 'auto' : '0' }}
+          className="relative z-50 overflow-hidden bg-neutral-950"
           aria-hidden={expanded ? undefined : 'true'}
           inert={expanded ? undefined : ''}
         >
@@ -237,18 +241,25 @@ function RootLayoutInner({ children }) {
 
       <motion.div
         layout
-        style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-white pt-14"
+        style={{ 
+          borderTopLeftRadius: isHome ? 0 : 40, 
+          borderTopRightRadius: isHome ? 0 : 40,
+          paddingTop: isHome ? 0 : '3.5rem'
+        }}
+        className="relative flex flex-auto overflow-hidden bg-white"
       >
         <motion.div
           layout
-          className="relative isolate flex w-full flex-col pt-9"
+          className="relative isolate flex w-full flex-col"
+          style={{ paddingTop: isHome ? 0 : '2.25rem' }}
         >
-          <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-50 stroke-neutral-950/5"
-            yOffset={-96}
-            interactive
-          />
+          {!isHome && (
+            <GridPattern
+              className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-50 stroke-neutral-950/5"
+              yOffset={-96}
+              interactive
+            />
+          )}
 
           <main className="w-full flex-auto">{children}</main>
 

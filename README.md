@@ -1,30 +1,44 @@
-# Studio
+# Spekboom Studio Website
 
-Studio is a [Tailwind Plus](https://tailwindcss.com/plus) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+This is the codebase for the Spekboom Studio website, based in Cape Town, South Africa.
 
-## Getting started
+## Features
 
-To get started with this template, first install the npm dependencies:
+- Dynamic drone video hero section with fallback for different devices and connections
+- Responsive design optimized for mobile and desktop
+- Modern project showcase with category filtering
+- Expanded services offerings
+- Dedicated financial modeling and simulation section
+- Cape Town-focused branding
+
+## Development
+
+This project uses Next.js and Tailwind CSS. To get started with development:
 
 ```bash
+# Install dependencies
 npm install
-```
 
-Next, run the development server:
-
-```bash
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
 ```
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+## Key Components
 
-## Customizing
-
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+- `VideoHero`: Dynamic video background component with fallbacks
+- `FilterableProjects`: Interactive project showcase with category filtering
+- `FinancialModelingSection`: Dedicated section for the new financial modeling service
+- Updated footer with Cape Town location information
 
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind Plus license](https://tailwindcss.com/plus/license).
+This codebase is proprietary and owned by Spekboom Studio. All rights reserved.
 
 ## Learn more
 
