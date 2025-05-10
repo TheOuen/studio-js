@@ -37,7 +37,7 @@ export default function SpekboomProject() {
               </p>
               <p className="mt-6">
                 Our approach focused on creating an immersive experience that connects visitors with
-                Spekboom's mission through compelling visuals, intuitive navigation, and interactive elements.
+                Spekboom&apos;s mission through compelling visuals, intuitive navigation, and interactive elements.
               </p>
             </div>
           </section>

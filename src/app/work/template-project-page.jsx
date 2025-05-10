@@ -33,7 +33,7 @@ export default function ProjectPage() {
                 Overview of the client needs and project goals.
               </p>
               <p className="mt-6">
-                Our approach to solving the client's problems.
+                Our approach to solving the client&apos;s problems.
               </p>
             </div>
           </section>
