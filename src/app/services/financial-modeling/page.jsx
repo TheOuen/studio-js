@@ -80,7 +80,7 @@ function Process() {
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Discovery and Requirements">
-              We begin by thoroughly understanding your business needs, current spreadsheet models, and the financial problems you're trying to solve.
+              We begin by thoroughly understanding your business needs, current spreadsheet models, and the financial problems you&apos;re trying to solve.
             </ListItem>
             <ListItem title="Model Analysis">
               Our experts analyze your existing financial models to understand the calculation logic, data sources, and outputs.
