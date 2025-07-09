@@ -3,9 +3,11 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ContactModal } from './ContactModal'
 
 export function FloatingContact() {
   const [isVisible, setIsVisible] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const observerRef = useRef(null)
 
   useEffect(() => {
@@ -38,22 +40,29 @@ export function FloatingContact() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-      <Link
-        href="/contact"
-        className="inline-flex items-center gap-4 pl-2 pr-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20"
-      >
-        <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 flex-shrink-0">
-          <Image
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&crop=face"
-            alt="Contact"
-            width={48}
-            height={48}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <span className="font-semibold text-lg tracking-wide">Contact</span>
-      </Link>
-    </div>
+    <>
+      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="inline-flex items-center gap-4 pl-2 pr-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20"
+        >
+          <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 flex-shrink-0">
+            <Image
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&crop=face"
+              alt="Contact"
+              width={48}
+              height={48}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="font-semibold text-lg tracking-wide">Contact</span>
+        </button>
+      </div>
+      
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </>
   )
 } 

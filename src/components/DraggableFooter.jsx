@@ -1,10 +1,11 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Container } from './Container'
 import { FadeIn } from './FadeIn'
+import { ContactModal } from './ContactModal'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -18,6 +19,7 @@ export function DraggableFooter() {
   const contactButtonsRef = useRef(null)
   const decorativeElementsRef = useRef(null)
   const socialLinksRef = useRef(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const container = containerRef.current
@@ -96,7 +98,7 @@ export function DraggableFooter() {
     tl.call(() => {
       // Add hover effects to contact buttons
       if (contactButtonsRef.current && typeof window !== 'undefined') {
-        const buttons = contactButtonsRef.current.querySelectorAll('a')
+        const buttons = contactButtonsRef.current.querySelectorAll('button')
         buttons.forEach(button => {
           button.addEventListener('mouseenter', () => {
             gsap.to(button, { scale: 1.1, rotation: Math.random() * 3 - 1.5, duration: 0.3, ease: "power2.out" })
@@ -139,21 +141,33 @@ export function DraggableFooter() {
         <div className="bg-white rounded-[2.5rem] p-8 lg:p-16 mx-4 shadow-2xl border border-pink-100">
           {/* Header with Location & Time */}
           <div ref={locationTimeRef} className="flex justify-between items-center mb-16">
-            <span className="text-lg font-bold text-pink-600">
+            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-pink-600">
               Cape Town, South Africa
             </span>
-            <span className="text-lg font-bold text-pink-600">
-              {new Date().toLocaleTimeString('en-US', { 
-                hour: '2-digit', 
-                minute: '2-digit',
-                hour12: true 
-              }).toUpperCase()}
+            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-pink-600">
+              {(() => {
+                const time = new Date().toLocaleTimeString('en-US', { 
+                  hour: '2-digit', 
+                  minute: '2-digit',
+                  hour12: true 
+                });
+                const [timepart, period] = time.split(' ');
+                const [hours, minutes] = timepart.split(':');
+                return (
+                  <>
+                    <span>{hours}</span>
+                    <span className="blink-animation">:</span>
+                    <span>{minutes}</span>
+                    <span> {period}</span>
+                  </>
+                );
+              })()}
             </span>
           </div>
           
           {/* Main Heading */}
-          <h2 ref={titleRef} className="text-5xl sm:text-6xl lg:text-7xl font-black text-pink-600 mb-20 text-center leading-[0.9] tracking-tight">
-            Let&apos;s work together!
+          <h2 ref={titleRef} className="text-[clamp(50px,6vw,72px)] font-black text-pink-600 mb-20 text-center leading-[0.85] tracking-tight">
+            Let&apos;s work <span className="text-pink-800">together!</span>
           </h2>
           
           {/* Interactive Contact Elements Layout */}
@@ -162,18 +176,20 @@ export function DraggableFooter() {
             {/* Left Decorative Elements */}
             <div ref={decorativeElementsRef} className="absolute left-0 lg:left-8 top-1/2 transform -translate-y-1/2">
               {/* Say Hi Bubble */}
-              <div 
-                className="w-24 h-24 lg:w-32 lg:h-32 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 cursor-pointer select-none shadow-xl mb-8 transition-all duration-300 hover:scale-110"
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="w-24 h-24 lg:w-32 lg:h-32 bg-yellow-400 hover:bg-yellow-500 rounded-full flex items-center justify-center transform -rotate-12 cursor-pointer select-none shadow-xl mb-8 transition-all duration-300 hover:scale-110"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(-12deg)`
                 }}
               >
                 <span className="text-lg lg:text-xl font-black text-black leading-tight text-center">say<br/>hi!!</span>
-              </div>
+              </button>
               
               {/* Leopard Print Circle */}
-              <div 
-                className="w-20 h-20 lg:w-24 lg:h-24 rounded-full cursor-pointer select-none shadow-lg transition-all duration-300 hover:scale-110"
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="w-20 h-20 lg:w-24 lg:h-24 rounded-full cursor-pointer select-none shadow-lg transition-all duration-300 hover:scale-110 hover:brightness-110"
                 style={{ 
                   background: 'radial-gradient(circle at 30% 20%, #D2691E 20%, #8B4513 20%, #8B4513 40%, #D2691E 40%, #D2691E 60%, #8B4513 60%)',
                   backgroundSize: '12px 12px',
@@ -185,49 +201,50 @@ export function DraggableFooter() {
                     <div className="w-3 h-3 lg:w-4 lg:h-4 bg-black rounded-full"></div>
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
 
             {/* Center Contact Buttons */}
             <div ref={contactButtonsRef} className="flex flex-col items-center gap-6 lg:gap-8">
               {/* Reach out - Top */}
-              <a
-                href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
-                className="bg-green-400 hover:bg-green-500 text-black font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-all duration-300 shadow-lg hover:scale-105 transform"
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-green-400 hover:bg-green-500 text-black font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-all duration-300 shadow-lg hover:scale-105 transform cursor-pointer"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
               >
                 Reach out
-              </a>
+              </button>
               
               {/* Let's chat - Middle */}
-              <a
-                href="/contact"
-                className="bg-red-700 hover:bg-red-800 text-white font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-all duration-300 shadow-lg hover:scale-105 transform"
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-red-700 hover:bg-red-800 text-white font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-all duration-300 shadow-lg hover:scale-105 transform cursor-pointer"
                 style={{ 
                   transform: `translate(${Math.random() * 30 - 15}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
               >
                 Let&apos;s chat
-              </a>
+              </button>
               
               {/* Send a message - Bottom (Largest) */}
-              <a
-                href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
-                className="bg-pink-500 hover:bg-pink-600 text-white font-black text-2xl lg:text-3xl px-12 lg:px-16 py-6 lg:py-8 rounded-full transition-all duration-300 shadow-xl hover:scale-105 transform"
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-pink-500 hover:bg-pink-600 text-white font-black text-2xl lg:text-3xl px-12 lg:px-16 py-6 lg:py-8 rounded-full transition-all duration-300 shadow-xl hover:scale-105 transform cursor-pointer"
                 style={{ 
                   transform: `translate(${Math.random() * 25 - 12.5}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
               >
                 Send a message
-              </a>
+              </button>
             </div>
 
             {/* Right Mail Icon */}
             <div className="absolute right-0 lg:right-8 top-1/2 transform -translate-y-1/2">
-              <div 
-                className="w-24 h-24 lg:w-32 lg:h-32 bg-cyan-400 rounded-full flex items-center justify-center transform rotate-12 cursor-pointer select-none shadow-xl transition-all duration-300 hover:scale-110"
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="w-24 h-24 lg:w-32 lg:h-32 bg-cyan-400 hover:bg-cyan-500 rounded-full flex items-center justify-center transform rotate-12 cursor-pointer select-none shadow-xl transition-all duration-300 hover:scale-110"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(12deg)`
                 }}
@@ -235,23 +252,55 @@ export function DraggableFooter() {
                 <svg className="w-12 h-12 lg:w-16 lg:h-16 text-black" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
-              </div>
+              </button>
             </div>
           </div>
           
           {/* Footer Links */}
           <div ref={socialLinksRef} className="flex justify-between items-center">
-            <span className="text-pink-600 font-bold text-lg">©2025</span>
+            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-pink-600">©2025</span>
             
             <div className="flex gap-8 lg:gap-12">
-              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">Instagram</a>
-              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">YouTube</a>
-              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">Unsplash</a>
-              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">TikTok</a>
+              {[
+                { name: 'Instagram', href: '#' },
+                { name: 'YouTube', href: '#' },
+                { name: 'Unsplash', href: '#' },
+                { name: 'TikTok', href: '#' }
+              ].map((social) => (
+                <a 
+                  key={social.name}
+                  href={social.href} 
+                  className="relative group inline-block"
+                >
+                  <div className="px-4 overflow-hidden h-10 py-2">
+                    <div className="flex flex-col transition-transform duration-200 ease-[cubic-bezier(0.64,0.57,0.67,1.53)] group-hover:-translate-y-1/2">
+                      <span className="text-[clamp(16px,1.6vw,24px)] font-medium text-pink-600 group-hover:text-pink-800 transition-colors mb-1.5">
+                        {social.name}
+                      </span>
+                      <span className="text-[clamp(16px,1.6vw,24px)] font-medium text-pink-600 group-hover:text-pink-800 transition-colors mb-1.5">
+                        {social.name}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Hover preview effect */}
+                  <div className="left-1/2 -translate-x-1/2 absolute -top-48 w-[200px] h-[120px] p-2 rounded-lg bg-pink-200/25 backdrop-blur-md opacity-0 translate-y-4 scale-95 pointer-events-none group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-10">
+                    <div className="w-full h-full bg-gradient-to-br from-pink-300 to-pink-500 rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">{social.name}</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </Container>
+      
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   )
 } 
