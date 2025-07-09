@@ -1,34 +1,60 @@
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Offices } from '@/components/Offices'
 
 export function ContactSection() {
   return (
-    <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn className="-mx-6 rounded-4xl bg-neutral-950 px-6 py-20 sm:mx-0 sm:py-32 md:px-12">
-        <div className="mx-auto max-w-4xl">
-          <div className="max-w-xl">
-            <h2 className="font-display text-3xl font-medium text-balance text-white sm:text-4xl">
-              Tell us about your project
-            </h2>
-            <div className="mt-6 flex">
-              <Button href="/contact" invert>
-                Say Hej
-              </Button>
-            </div>
-            <div className="mt-10 border-t border-white/10 pt-10">
-              <h3 className="font-display text-base font-semibold text-white">
-                Our offices
-              </h3>
-              <Offices
-                invert
-                className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-              />
+    <div className="bg-black py-32">
+      <Container>
+        <FadeIn className="text-center">
+          <div className="mb-8">
+            <span className="text-sm font-medium text-white/40 tracking-widest uppercase">
+              Cape Town, South Africa
+            </span>
+            <span className="ml-8 text-sm font-medium text-[#00CFFF]">
+              {new Date().toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false 
+              })}
+            </span>
+          </div>
+          
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight">
+            LET'S BUILD SOMETHING
+          </h2>
+          
+          <p className="text-xl text-white/60 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+            If you're looking for a designer–developer duo that can turn vision into execution, let's talk.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+            <a 
+              href="mailto:mike@lankchilled.com"
+              className="px-8 py-4 border border-white/20 text-white hover:border-[#00CFFF] hover:text-[#00CFFF] transition-all duration-300 text-lg font-medium tracking-wide"
+            >
+              mike@lankchilled.com
+            </a>
+            
+            <a 
+              href="/contact"
+              className="px-8 py-4 bg-[#00CFFF] text-black hover:bg-white transition-all duration-300 text-lg font-medium tracking-wide"
+            >
+              Send Message
+            </a>
+          </div>
+          
+          <div className="text-center border-t border-white/10 pt-8">
+            <p className="text-sm text-white/40 mb-4">©2025 Lank Chilled</p>
+            <div className="flex justify-center items-center gap-8 text-sm text-white/40">
+              <a href="#" className="hover:text-[#00CFFF] transition-colors">Instagram</a>
+              <a href="#" className="hover:text-[#00CFFF] transition-colors">LinkedIn</a>
+              <a href="#" className="hover:text-[#00CFFF] transition-colors">Dribbble</a>
+              <a href="#" className="hover:text-[#00CFFF] transition-colors">Behance</a>
             </div>
           </div>
-        </div>
-      </FadeIn>
-    </Container>
+        </FadeIn>
+      </Container>
+    </div>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/Container'
@@ -166,40 +166,60 @@ const PROJECTS = [
 
 function ProjectCard({ project }) {
   return (
-    <FadeIn>
+    <div className="flex-none w-[300px] md:w-[350px] mr-6 transition-transform duration-300 hover:scale-[1.02]">
       <Link 
         href={project.href} 
-        className="group relative block overflow-hidden rounded-2xl bg-neutral-100"
+        className="group block h-full shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden rounded-2xl bg-neutral-100"
       >
-        <div className="aspect-[16/9] w-full overflow-hidden">
+        <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
             width={600}
             height={400}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <p className="text-sm font-medium text-white/80">{project.year}</p>
+              <h3 className="text-xl font-medium -mt-1">{project.title}</h3>
+              <p className="mt-2 text-sm text-white/80">{project.description}</p>
+            </div>
+          </div>
         </div>
-        
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:opacity-100">
-          <p className="text-sm font-medium text-white/80">{project.year}</p>
-          <h3 className="text-xl font-medium -mt-1">{project.title}</h3>
-          <p className="mt-2 text-sm text-white/80">{project.description}</p>
-        </div>
-        
         <div className="p-6">
           <p className="text-sm text-neutral-600">{project.year}</p>
-          <h3 className="mt-1 font-medium text-xl text-neutral-950">
+          <h3 className="mt-1 font-medium text-xl text-neutral-950 line-clamp-1">
             {project.title}
           </h3>
-          <p className="mt-2 text-sm text-neutral-600">{project.description}</p>
+          <p className="mt-2 text-sm text-neutral-600 line-clamp-2">{project.description}</p>
         </div>
       </Link>
-    </FadeIn>
+    </div>
   )
 }
 
 export function FilterableProjects() {
+  const scrollContainerRef = useRef(null);
+
+  const scrollbarHideStyle = { 
+    scrollbarWidth: 'none', 
+    msOverflowStyle: 'none', 
+    WebkitOverflowScrolling: 'touch',
+  };
+  
+  // Add CSS rule for WebKit browsers
+  if (typeof document !== 'undefined') {
+    const style = document.createElement('style');
+    style.textContent = `
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   return (
     <Container className="mt-16">
       <Tab.Group>
@@ -224,22 +244,33 @@ export function FilterableProjects() {
         
         <Tab.Panels>
           <Tab.Panel>
-            <FadeInStagger className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-              {PROJECTS.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </FadeInStagger>
+            <div 
+              className="overflow-x-auto pb-8 -mx-4 px-4 hide-scrollbar" 
+              ref={scrollContainerRef}
+              style={scrollbarHideStyle}
+            >
+              <div className="flex pb-4">
+                {PROJECTS.map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+            </div>
           </Tab.Panel>
           
           {CATEGORIES.slice(1).map((category) => (
             <Tab.Panel key={category.id}>
-              <FadeInStagger className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-                {PROJECTS.filter(project => 
-                  project.categories.includes(category.id)
-                ).map((project) => (
-                  <ProjectCard key={project.id} project={project} />
-                ))}
-              </FadeInStagger>
+              <div 
+                className="overflow-x-auto pb-8 -mx-4 px-4 hide-scrollbar"
+                style={scrollbarHideStyle}
+              >
+                <div className="flex pb-4">
+                  {PROJECTS.filter(project => 
+                    project.categories.includes(category.id)
+                  ).map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
             </Tab.Panel>
           ))}
         </Tab.Panels>
