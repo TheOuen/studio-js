@@ -21,7 +21,7 @@ function ProjectShowcase() {
       subtitle: 'Property brand identity, brochure design, and 3D renders',
       year: '2024',
       category: 'Brand & 3D',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1200&auto=format&fit=crop',
       tags: ['Branding', '3D Visualization', 'Real Estate']
     },
     {
@@ -29,7 +29,7 @@ function ProjectShowcase() {
       subtitle: 'UI/UX and front-end build for a Cape Town design firm',
       year: '2024',
       category: 'Web Design',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1200&auto=format&fit=crop',
       tags: ['UI/UX', 'Frontend', 'Responsive']
     },
     {

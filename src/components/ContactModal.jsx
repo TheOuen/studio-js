@@ -14,18 +14,18 @@ export function ContactModal({ isOpen, onClose }) {
   })
 
   const services = [
-    'UX/UI Design',
+    'UX Design',
+    'Drone Photography',
     'Web Development', 
     'App Development',
-    'Drone Photography',
     'Architectural Renders'
   ]
 
   const budgetRanges = [
     'Under R10,000',
-    'R10,000 - R20,000',
-    'R20,000 - R50,000',
-    'Over R50,000'
+    'Under R20,000',
+    'Under R50,000',
+    'More than R50,000'
   ]
 
   useEffect(() => {

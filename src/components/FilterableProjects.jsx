@@ -33,7 +33,7 @@ const PROJECTS = [
     description: 'E-commerce site for artisanal products',
     year: '2023',
     categories: ['web'],
-    image: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=1472&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1472&auto=format&fit=crop',
     href: '/work/sloetree',
   },
   {
@@ -42,7 +42,7 @@ const PROJECTS = [
     description: 'Real estate development website',
     year: '2023',
     categories: ['web'],
-    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1471&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1471&auto=format&fit=crop',
     href: '/work/the-ridge',
   },
   {
@@ -51,7 +51,7 @@ const PROJECTS = [
     description: 'Mobile application for ocean conservation',
     year: '2022',
     categories: ['app'],
-    image: 'https://images.unsplash.com/photo-1621504450181-5d356f61d307?q=80&w=1374&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=1374&auto=format&fit=crop',
     href: '/work/wave',
   },
   {
@@ -60,7 +60,7 @@ const PROJECTS = [
     description: 'Aerial photography for conservation projects',
     year: '2023',
     categories: ['drone'],
-    image: 'https://images.unsplash.com/photo-1576485375217-d6a95e34d043?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1470&auto=format&fit=crop',
     href: '/work/spekboom-drone',
   },
   {
@@ -69,7 +69,7 @@ const PROJECTS = [
     description: 'Drone footage of estate properties',
     year: '2023',
     categories: ['drone'],
-    image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1472&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1472&auto=format&fit=crop',
     href: '/work/sloetree-drone',
   },
   {
@@ -78,7 +78,7 @@ const PROJECTS = [
     description: 'Aerial videography of luxury development',
     year: '2023',
     categories: ['drone'],
-    image: 'https://images.unsplash.com/photo-1535941339077-2dd1c7963098?q=80&w=1374&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1544731612-de7f96afe55f?q=80&w=1374&auto=format&fit=crop',
     href: '/work/ridge-drone',
   },
   {
@@ -87,7 +87,7 @@ const PROJECTS = [
     description: 'UX design for investment platform',
     year: '2023',
     categories: ['ux'],
-    image: 'https://images.unsplash.com/photo-1484318571209-661cf29a69c3?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1470&auto=format&fit=crop',
     href: '/work/financial-dashboard',
   },
   {
@@ -96,7 +96,7 @@ const PROJECTS = [
     description: 'Interface design for IoT application',
     year: '2023',
     categories: ['ux'],
-    image: 'https://images.unsplash.com/photo-1614531341773-3bff8b7cb3fc?q=80&w=1508&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?q=80&w=1508&auto=format&fit=crop',
     href: '/work/smart-home',
   },
   {
@@ -105,7 +105,7 @@ const PROJECTS = [
     description: 'Mobile UX for travel planning app',
     year: '2022',
     categories: ['ux'],
-    image: 'https://images.unsplash.com/photo-1504432842672-1a79f78e4084?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=1470&auto=format&fit=crop',
     href: '/work/travel-companion',
   },
   {

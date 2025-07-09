@@ -5,28 +5,28 @@ export function BentoImageGallery({ images = [] }) {
   // If no images are provided, display placeholder layout
   const placeholderImages = [
     {
-      src: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=1170&auto=format&fit=crop',
-      alt: 'Project screenshot 1',
+      src: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1170&auto=format&fit=crop',
+      alt: 'African landscape 1',
       className: 'col-span-2 row-span-2'
     },
     {
-      src: 'https://images.unsplash.com/photo-1545235617-7a424c1a60cc?q=80&w=880&auto=format&fit=crop',
-      alt: 'Project screenshot 2',
+      src: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=880&auto=format&fit=crop',
+      alt: 'African landscape 2',
       className: 'col-span-1 row-span-1'
     },
     {
-      src: 'https://images.unsplash.com/photo-1551650992-ee4fd47df41f?q=80&w=774&auto=format&fit=crop',
-      alt: 'Project screenshot 3',
+      src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=774&auto=format&fit=crop',
+      alt: 'African landscape 3',
       className: 'col-span-1 row-span-1'
     },
     {
-      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1115&auto=format&fit=crop',
-      alt: 'Project screenshot 4',
+      src: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=1115&auto=format&fit=crop',
+      alt: 'African landscape 4',
       className: 'col-span-1 row-span-2'
     },
     {
-      src: 'https://images.unsplash.com/photo-1551651653-c5186a1fbba2?q=80&w=774&auto=format&fit=crop',
-      alt: 'Project screenshot 5',
+      src: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=774&auto=format&fit=crop',
+      alt: 'African landscape 5',
       className: 'col-span-2 row-span-1'
     }
   ]
