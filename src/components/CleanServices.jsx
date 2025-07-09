@@ -45,56 +45,68 @@ function ServiceCard({ service, index, isVisible }) {
         isVisible ? 'opacity-100 translate-y-0' : ''
       }`}
       style={{ 
-        transitionDelay: `${index * 150}ms`,
-        background: service.background 
+        transitionDelay: `${index * 150}ms`
       }}
     >
-      <div className="relative rounded-3xl p-8 lg:p-12 overflow-hidden group hover:shadow-2xl transition-all duration-500 mx-4">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex-1 lg:pr-8">
-            <div className="flex items-start justify-between mb-8">
-              <div>
-                <h3 className="text-4xl lg:text-5xl font-black text-white mb-4 group-hover:scale-105 transition-transform duration-500">
-                  {service.title}
-                </h3>
+      {/* Card Container with proper mobile margins and rounded borders */}
+      <div className="mx-4 sm:mx-6 lg:mx-8">
+        <div 
+          className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-white/10"
+          style={{ background: service.background }}
+        >
+          {/* Mobile-first responsive layout */}
+          <div className="flex flex-col space-y-6 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
+            
+            {/* Content Section */}
+            <div className="flex-1 lg:pr-8">
+              {/* Header with number - mobile optimized */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
+                <div className="mb-4 sm:mb-0">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight group-hover:scale-105 transition-transform duration-500">
+                    {service.title}
+                  </h3>
+                </div>
+                <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white/15 group-hover:text-white/30 transition-colors duration-500 self-start sm:self-auto">
+                  ({service.number})
+                </span>
               </div>
-              <span className="text-6xl lg:text-7xl font-black text-white/15 group-hover:text-white/30 transition-colors duration-500">
-                ({service.number})
-              </span>
+              
+              {/* Description - mobile optimized */}
+              <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 lg:mb-8 leading-relaxed">
+                {service.description}
+              </p>
+              
+              {/* Tags - mobile responsive grid */}
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                {service.tags.map((tag, tagIndex) => (
+                  <span 
+                    key={tag}
+                    className="tag-item px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
+                    style={{ 
+                      animationDelay: `${(index * 150) + (tagIndex * 100)}ms` 
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
             
-            <p className="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-              {service.description}
-            </p>
-            
-            <div className="flex flex-wrap gap-3">
-              {service.tags.map((tag, tagIndex) => (
-                <span 
-                  key={tag}
-                  className="tag-item px-4 py-2 rounded-full text-sm font-medium text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
-                  style={{ 
-                    animationDelay: `${(index * 150) + (tagIndex * 100)}ms` 
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
+            {/* Image Section - mobile optimized */}
+            <div className="w-full lg:w-1/3 lg:mt-0">
+              <div className="aspect-[16/10] sm:aspect-[4/3] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-700">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
             </div>
           </div>
           
-          <div className="mt-8 lg:mt-0 lg:w-1/3">
-            <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-700">
-              <img 
-                src={service.image} 
-                alt={service.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-            </div>
-          </div>
+          {/* Subtle hover overlay */}
+          <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl sm:rounded-3xl"></div>
         </div>
-        
-        {/* Subtle hover overlay */}
-        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
       </div>
     </div>
   )
@@ -124,7 +136,7 @@ export function CleanServices() {
       },
       {
         threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
       }
     )
 
@@ -142,27 +154,27 @@ export function CleanServices() {
   }, [])
 
   return (
-    <div className="relative z-20 bg-black py-40">
+    <div className="relative z-20 bg-black py-20 sm:py-32 lg:py-40">
       <Container>
-        {/* Header */}
+        {/* Header - mobile optimized */}
         <div 
           ref={headerRef}
-          className={`mb-20 px-4 transition-all duration-1000 ease-out ${
+          className={`mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 transition-all duration-1000 ease-out ${
             headerVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 tracking-tight">
             SERVICES
           </h2>
-          <p className="text-xl text-white/60 max-w-2xl">
+          <p className="text-lg sm:text-xl text-white/60 max-w-2xl leading-relaxed">
             Comprehensive creative solutions from concept to completion
           </p>
         </div>
         
-        {/* Service Cards */}
-        <div className="space-y-12">
+        {/* Service Cards - mobile responsive spacing */}
+        <div className="space-y-8 sm:space-y-12 lg:space-y-16">
           {services.map((service, index) => (
             <div
               key={service.number}
@@ -189,6 +201,16 @@ export function CleanServices() {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+
+        /* Ensure proper mobile touch targets */
+        @media (max-width: 640px) {
+          .service-card .tag-item {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         }
       `}</style>
