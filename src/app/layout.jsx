@@ -4,17 +4,17 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - Lank Chilled',
-    default: 'Lank Chilled - Design & Development Studio Cape Town',
+    template: '%s - Studio Plus',
+    default: 'Studio Plus - Design & Development Studio Cape Town',
   },
-  description: 'Compact creative studio based in Cape Town. We design and build digital products, branded content, and architectural visuals for clients who care about craft.',
+  description: 'Creative studio based in Cape Town. We specialize in UX/UI design, web development, app development, drone photography, and architectural renders for clients who value quality.',
   icons: {
     icon: [
-      { url: '/logos/lankchilled_logo_square_1.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logos/lankchilled_logo_square_1.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
     ],
     apple: [
-      { url: '/logos/lankchilled_logo_square_1.png', sizes: '180x180', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
   },
 }

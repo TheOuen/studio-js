@@ -13,21 +13,21 @@ export function StatsCarousel() {
       number: 50,
       title: 'Web development projects delivered across Africa',
       subtitle: 'From Cape Town startups to Lagos fintech companies.',
-      image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-green-400 to-emerald-600'
     },
     {
       number: 15,
       title: 'African countries where my web solutions are actively used',
       subtitle: 'Proud to contribute to Africa&apos;s digital transformation.',
-      image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-orange-400 to-red-600'
     },
     {
       number: 100,
       title: 'React & Next.js components in my development toolkit',
       subtitle: 'Building fast, scalable web applications with modern tech.',
-      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-blue-400 to-purple-600'
     }
   ], []);
@@ -73,13 +73,15 @@ export function StatsCarousel() {
           <div className="flex flex-col lg:flex-row gap-8 items-center min-h-[60vh]">
             {/* Image */}
             <div className="lg:w-1/2">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-white/10 transition-all duration-1000">
-                <img 
-                  key={currentIndex}
-                  src={currentStat.image}
-                  alt={currentStat.title}
-                  className="w-full h-full object-cover transition-all duration-1000"
-                />
+              <div className="p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-3xl transition-all duration-1000">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
+                  <img 
+                    key={currentIndex}
+                    src={currentStat.image}
+                    alt={currentStat.title}
+                    className="w-full h-full object-cover transition-all duration-1000"
+                  />
+                </div>
               </div>
             </div>
             

@@ -10,7 +10,7 @@ const services = [
     description: 'User-friendly, scalable interfaces for websites and mobile apps. Built in Figma, designed to perform.',
     tags: ['Interface Design', 'User Experience', 'Mobile First', 'Responsive Design', 'Figma', 'Prototyping'],
     background: 'linear-gradient(135deg, #f472b6 0%, #ec4899 100%)',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=600&auto=format&fit=crop'
   },
   {
     number: '02',
@@ -18,7 +18,7 @@ const services = [
     description: 'Clean, modular front-end code with seamless animations and responsive behaviour. React-first.',
     tags: ['React Development', 'GSAP Animations', 'TypeScript', 'Next.js', 'Performance', 'Modern Web'],
     background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=600&auto=format&fit=crop'
   },
   {
     number: '03',
@@ -26,7 +26,7 @@ const services = [
     description: 'Striking photo-real renders for architecture, interiors, and real estate marketing.',
     tags: ['3D Modeling', 'Photorealistic Renders', 'Architectural Viz', 'Interior Design', 'Real Estate', 'Lighting'],
     background: 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600&auto=format&fit=crop'
   },
   {
     number: '04',
@@ -34,7 +34,7 @@ const services = [
     description: 'Visual storytelling through brand design, layout systems, and hand-crafted illustration.',
     tags: ['Brand Identity', 'Layout Design', 'Typography', 'Color Theory', 'Illustration', 'Print Design'],
     background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=600&auto=format&fit=crop'
   }
 ];
 
@@ -94,12 +94,14 @@ function ServiceCard({ service, index, isVisible }) {
             
             {/* Image Section - mobile optimized */}
             <div className="w-full lg:w-1/3 lg:mt-0">
-              <div className="aspect-[16/10] sm:aspect-[4/3] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-700">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+              <div className="p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl sm:rounded-3xl group-hover:scale-105 transition-transform duration-700">
+                <div className="aspect-[16/10] sm:aspect-[4/3] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
               </div>
             </div>
           </div>

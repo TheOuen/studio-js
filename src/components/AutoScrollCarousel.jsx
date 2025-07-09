@@ -58,17 +58,22 @@ export function AutoScrollCarousel({ images = [] }) {
     <div className="mb-16 overflow-hidden">
       <div 
         ref={carouselRef}
-        className="flex gap-4 overflow-x-hidden"
+        className="flex gap-6 overflow-x-hidden"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {duplicatedImages.map((src, index) => (
-          <div key={index} className="flex-none w-80 h-80 rounded-2xl overflow-hidden bg-neutral-800">
-            <img 
-              src={src}
-              alt={`Project ${(index % images.length) + 1}`}
-              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              draggable={false}
-            />
+          <div 
+            key={index} 
+            className="flex-none w-80 h-80 p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-3xl"
+          >
+            <div className="w-full h-full rounded-2xl overflow-hidden bg-neutral-800">
+              <img 
+                src={src}
+                alt={`African landscape ${(index % images.length) + 1}`}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                draggable={false}
+              />
+            </div>
           </div>
         ))}
       </div>

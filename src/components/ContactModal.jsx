@@ -14,21 +14,18 @@ export function ContactModal({ isOpen, onClose }) {
   })
 
   const services = [
-    'UGC',
-    'Brand Photography', 
-    'Short-Form Video',
-    'Content Strategy',
-    'Identity',
-    'Account Management',
-    'Other'
+    'UX/UI Design',
+    'Web Development', 
+    'App Development',
+    'Drone Photography',
+    'Architectural Renders'
   ]
 
   const budgetRanges = [
-    'Under $500',
-    '$500-$1k',
-    '$1k-$2.5k',
-    '$2.5k-$5k',
-    '$5k+'
+    'Under R10,000',
+    'R10,000 - R20,000',
+    'R20,000 - R50,000',
+    'Over R50,000'
   ]
 
   useEffect(() => {
@@ -90,8 +87,11 @@ export function ContactModal({ isOpen, onClose }) {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-5xl lg:text-6xl font-black text-pink-600 mb-4">
-              Get in touch
+              Let&apos;s create something amazing!
             </h2>
+            <p className="text-xl text-pink-700 font-medium">
+              Based in Cape Town, working globally
+            </p>
           </div>
 
           {/* Form Grid */}
@@ -150,14 +150,14 @@ export function ContactModal({ isOpen, onClose }) {
                 onChange={(e) => setFormData(prev => ({ ...prev, projectDetails: e.target.value }))}
                 rows={6}
                 className="w-full bg-transparent text-pink-800 text-lg font-medium placeholder-pink-400 border-none outline-none resize-none"
-                placeholder="Tell me your goals"
+                placeholder="Tell me about your vision and goals"
               />
             </div>
 
             {/* What can I do for you? */}
             <div className="bg-pink-200/50 rounded-2xl p-6">
               <label className="block text-pink-700 font-bold text-lg mb-4">
-                What can I do for you?
+                What can I help you with?
               </label>
               <div className="space-y-3">
                 {services.map(service => (
@@ -165,7 +165,7 @@ export function ContactModal({ isOpen, onClose }) {
                     key={service}
                     type="button"
                     onClick={() => handleServiceToggle(service)}
-                    className={`inline-block px-4 py-2 rounded-full border-2 transition-colors mr-2 mb-2 ${
+                    className={`inline-block px-4 py-2 rounded-full border-2 transition-colors mr-2 mb-2 text-sm font-medium ${
                       formData.services.includes(service)
                         ? 'bg-pink-500 text-white border-pink-500'
                         : 'bg-transparent text-pink-700 border-pink-400 hover:border-pink-500'
@@ -180,7 +180,7 @@ export function ContactModal({ isOpen, onClose }) {
             {/* Budget Range */}
             <div className="bg-pink-200/50 rounded-2xl p-6">
               <label className="block text-pink-700 font-bold text-lg mb-4">
-                Do you have a budget range?
+                Project budget range (ZAR)
               </label>
               <div className="space-y-3">
                 {budgetRanges.map(range => (
@@ -188,7 +188,7 @@ export function ContactModal({ isOpen, onClose }) {
                     key={range}
                     type="button"
                     onClick={() => setFormData(prev => ({ ...prev, budget: range }))}
-                    className={`inline-block px-4 py-2 rounded-full border-2 transition-colors mr-2 mb-2 ${
+                    className={`inline-block px-4 py-2 rounded-full border-2 transition-colors mr-2 mb-2 text-sm font-medium ${
                       formData.budget === range
                         ? 'bg-pink-500 text-white border-pink-500'
                         : 'bg-transparent text-pink-700 border-pink-400 hover:border-pink-500'
@@ -212,7 +212,7 @@ export function ContactModal({ isOpen, onClose }) {
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
-              Submit
+              Let&apos;s collaborate!
             </button>
           </div>
         </form>
