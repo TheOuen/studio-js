@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Container } from './Container'
 import { GSAPStaggerChildren } from './GSAPAnimations'
 
@@ -8,17 +8,17 @@ export function StatsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [displayNumber, setDisplayNumber] = useState(0)
   
-  const stats = [
+  const stats = useMemo(() => [
     {
       number: 13,
-      title: 'Countries I\'ve visited with family and friends',
+      title: 'Countries I&apos;ve visited with family and friends',
       subtitle: 'My top 3 are Japan, Thailand, and Guatemala.',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-pink-400 to-pink-600'
     },
     {
       number: 31,
-      title: 'Spotify playlists I\'ve created. But I mainly listen to the blend my boyfriend and I have.',
+      title: 'Spotify playlists I&apos;ve created. But I mainly listen to the blend my boyfriend and I have.',
       subtitle: 'Music is life and keeps me creative and inspired.',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-pink-400 to-pink-600'
@@ -30,7 +30,7 @@ export function StatsCarousel() {
       image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-pink-400 to-pink-600'
     }
-  ];
+  ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {

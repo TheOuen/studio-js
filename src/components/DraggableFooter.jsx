@@ -155,7 +155,7 @@ export function DraggableFooter() {
             
             {/* Main Heading */}
             <h2 ref={titleRef} className="text-4xl sm:text-5xl font-black text-pink-600 mb-12 text-center leading-tight">
-              Let's work<br/>together!
+              Let&apos;s work<br/>together!
             </h2>
             
             {/* Email Section */}
@@ -212,7 +212,7 @@ export function DraggableFooter() {
           </div>
           
           <h2 ref={titleRef} className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-16 tracking-tight">
-            Let's work together!
+            Let&apos;s work together!
           </h2>
           
           {/* Draggable Contact Elements */}
