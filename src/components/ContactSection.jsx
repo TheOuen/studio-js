@@ -4,8 +4,8 @@ import { FadeIn } from '@/components/FadeIn'
 
 export function ContactSection() {
   return (
-    <div className="bg-black py-32">
-      <Container>
+    <div className="bg-black py-32 w-full min-h-screen flex items-center"> {/* Added w-full min-h-screen flex items-center to ensure full coverage */}
+      <Container className="w-full">
         <FadeIn className="text-center">
           <div className="mb-8">
             <span className="text-sm font-medium text-white/40 tracking-widest uppercase">
@@ -21,11 +21,11 @@ export function ContactSection() {
           </div>
           
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight">
-            LET'S BUILD SOMETHING
+            LET&apos;S BUILD SOMETHING
           </h2>
           
           <p className="text-xl text-white/60 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
-            If you're looking for a designer–developer duo that can turn vision into execution, let's talk.
+            If you&apos;re looking for a designer–developer duo that can turn vision into execution, let&apos;s talk.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">

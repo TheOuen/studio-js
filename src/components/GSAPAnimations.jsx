@@ -194,8 +194,8 @@ export function GSAPMorphOnScroll({ children }) {
       borderRadius: '24px',
       scale: 1,
       opacity: 1,
-      duration: 1.8,
-      ease: 'power4.out',
+      duration: 1.0, // Reduced from 1.8 to 1.0 for faster animation
+      ease: 'power3.out', // Changed from power4.out to power3.out for snappier feel
       scrollTrigger: {
         trigger: element,
         start: 'top 80%',

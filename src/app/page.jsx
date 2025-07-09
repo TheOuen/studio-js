@@ -60,23 +60,23 @@ function Services() {
           </div>
         </GSAPTextReveal>
         
-        <GSAPStaggerChildren stagger={0.2}>
+        <GSAPStaggerChildren stagger={0.1}> {/* Reduced from 0.2 to 0.1 for faster staggered animations */}
           <div className="space-y-12">
             {services.map((service, index) => (
               <GSAPMorphOnScroll key={service.number}>
                 <div 
-                  className="relative rounded-3xl p-8 lg:p-12 overflow-hidden transition-all duration-500 mx-4 group hover:shadow-2xl"
+                  className="relative rounded-3xl p-8 lg:p-12 overflow-hidden transition-all duration-300 mx-4 group hover:shadow-2xl" // Reduced from 500ms to 300ms
                   style={{ background: service.background }}
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex-1 lg:pr-8">
                       <div className="flex items-start justify-between mb-8">
                         <div>
-                          <h3 className="text-4xl lg:text-5xl font-black text-white mb-4 group-hover:scale-105 transition-transform duration-500">
+                          <h3 className="text-4xl lg:text-5xl font-black text-white mb-4 group-hover:scale-105 transition-transform duration-300"> {/* Reduced from 500ms to 300ms */}
                             {service.title}
                           </h3>
                         </div>
-                        <span className="text-6xl lg:text-7xl font-black text-white/15 group-hover:text-white/30 transition-colors duration-500">
+                        <span className="text-6xl lg:text-7xl font-black text-white/15 group-hover:text-white/30 transition-colors duration-300"> {/* Reduced from 500ms to 300ms */}
                           ({service.number})
                         </span>
                       </div>
@@ -89,7 +89,7 @@ function Services() {
                         {service.tags.map((tag, tagIndex) => (
                           <span 
                             key={tag}
-                            className="px-4 py-2 rounded-full text-sm font-medium text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300"
+                            className="px-4 py-2 rounded-full text-sm font-medium text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-200" // Reduced from 300ms to 200ms
                             style={{ animationDelay: `${tagIndex * 0.1}s` }}
                           >
                             {tag}
@@ -99,18 +99,18 @@ function Services() {
                     </div>
                     
                     <div className="mt-8 lg:mt-0 lg:w-1/3">
-                      <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-700">
+                      <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-400"> {/* Reduced from 700ms to 400ms */}
                         <img 
                           src={service.image} 
                           alt={service.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-400" // Reduced from 700ms to 400ms
                         />
                       </div>
                     </div>
                   </div>
                   
                   {/* Subtle hover overlay */}
-                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div> {/* Reduced from 500ms to 300ms */}
                 </div>
               </GSAPMorphOnScroll>
             ))}
@@ -311,7 +311,7 @@ export default async function Home() {
                         Building
                         <br />
                         <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                          Africa's
+                          Africa&apos;s
                         </span>
                         <br />
                         Digital Future
@@ -323,7 +323,7 @@ export default async function Home() {
                     <div className="space-y-6 text-white/80 leading-relaxed max-w-lg">
                       <p className="text-xl font-light">
                         From <strong className="text-emerald-400 font-medium">Cape Town</strong> to the continent, 
-                        we're crafting web experiences that connect African businesses to global opportunities.
+                        we&apos;re crafting web experiences that connect African businesses to global opportunities.
                       </p>
                       <p className="text-lg">
                         Specializing in <strong className="text-cyan-400 font-medium">React</strong>, 

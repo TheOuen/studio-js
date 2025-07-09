@@ -153,7 +153,7 @@ export function DraggableFooter() {
           
           {/* Main Heading */}
           <h2 ref={titleRef} className="text-5xl sm:text-6xl lg:text-7xl font-black text-pink-600 mb-20 text-center leading-[0.9] tracking-tight">
-            Let's work together!
+            Let&apos;s work together!
           </h2>
           
           {/* Interactive Contact Elements Layout */}
@@ -209,7 +209,7 @@ export function DraggableFooter() {
                   transform: `translate(${Math.random() * 30 - 15}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
               >
-                Let's chat
+                Let&apos;s chat
               </a>
               
               {/* Send a message - Bottom (Largest) */}
