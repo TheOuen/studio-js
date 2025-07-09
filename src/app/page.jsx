@@ -293,25 +293,101 @@ export default async function Home() {
               ]}
             />
 
-            {/* Studio Statement */}
-            <div className="mt-32 max-w-5xl mx-auto text-center">
-              <div className="space-y-12">
-                <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10">
-                  <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 tracking-tight">
-                    STUDIO STATEMENT
-                  </h2>
-                  <p className="text-xl sm:text-2xl text-white/90 leading-relaxed font-light mb-8">
-                    Lank Chilled is a compact creative studio based in Cape Town.
-                  </p>
-                  <p className="text-lg text-white/70 leading-relaxed font-light max-w-3xl mx-auto mb-8">
-                    We design and build digital products, branded content, and architectural visuals for clients who care about craft.
-                  </p>
-                  <p className="text-base text-white/50 leading-relaxed font-light">
-                    No overhead. No fluff. Just solid work, fast turnaround, and long-term collaborators when needed.
-                  </p>
+            {/* Studio Statement - Redesigned */}
+            <div className="mt-32 px-4">
+              <div className="max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                  
+                  {/* Left Side - Main Content */}
+                  <div className="space-y-8">
+                    <div className="space-y-6">
+                      <div className="inline-block">
+                        <span className="px-4 py-2 bg-gradient-to-r from-emerald-400 to-cyan-400 text-black text-sm font-bold rounded-full tracking-wider uppercase">
+                          Cape Town Studio
+                        </span>
+                      </div>
+                      
+                      <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.9] tracking-tight">
+                        Building
+                        <br />
+                        <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                          Africa's
+                        </span>
+                        <br />
+                        Digital Future
+                      </h2>
+                      
+                      <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"></div>
+                    </div>
+
+                    <div className="space-y-6 text-white/80 leading-relaxed max-w-lg">
+                      <p className="text-xl font-light">
+                        From <strong className="text-emerald-400 font-medium">Cape Town</strong> to the continent, 
+                        we're crafting web experiences that connect African businesses to global opportunities.
+                      </p>
+                      <p className="text-lg">
+                        Specializing in <strong className="text-cyan-400 font-medium">React</strong>, 
+                        <strong className="text-cyan-400 font-medium"> Next.js</strong>, and 
+                        <strong className="text-cyan-400 font-medium"> modern web technologies</strong> that scale.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      {['Web Development', 'UI/UX Design', 'React & Next.js', 'African Market Focus'].map((tag) => (
+                        <span key={tag} className="px-3 py-1 bg-white/10 text-white/70 text-sm rounded-full border border-white/20 backdrop-blur-sm">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Right Side - Visual Stats Card */}
+                  <div className="relative">
+                    <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl">
+                      <div className="space-y-8">
+                        <div className="text-center border-b border-white/20 pb-6">
+                          <h3 className="text-white font-bold text-lg mb-2">Studio Impact</h3>
+                          <p className="text-white/60 text-sm">Delivering results across Africa</p>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-6">
+                          <div className="text-center">
+                            <div className="text-4xl font-black text-emerald-400 mb-2">15</div>
+                            <div className="text-white/70 text-sm leading-tight">African Countries</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-4xl font-black text-cyan-400 mb-2">50+</div>
+                            <div className="text-white/70 text-sm leading-tight">Web Projects</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-4xl font-black text-blue-400 mb-2">100%</div>
+                            <div className="text-white/70 text-sm leading-tight">React Based</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-4xl font-black text-purple-400 mb-2">24/7</div>
+                            <div className="text-white/70 text-sm leading-tight">Support</div>
+                          </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-2xl p-4 border border-emerald-400/30">
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span className="text-white text-sm font-medium">Currently available for new projects</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Floating decorative elements */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full opacity-60 animate-pulse"></div>
+                    <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
+                  </div>
                 </div>
                 
-                <AnimatedStats />
+                {/* Bottom Stats Bar */}
+                <div className="mt-16">
+                  <AnimatedStats />
+                </div>
               </div>
             </div>
           </FadeIn>

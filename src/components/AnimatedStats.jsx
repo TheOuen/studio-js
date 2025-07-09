@@ -42,8 +42,8 @@ export function AnimatedStats() {
       snap: { innerHTML: 1 }
     })
     .to(projectsEl, {
-      innerHTML: "20",
-      duration: 2,
+      innerHTML: "50",
+      duration: 2.5,
       ease: "power2.out",
       snap: { innerHTML: 1 }
     }, "-=1.5")
@@ -60,24 +60,46 @@ export function AnimatedStats() {
   }, [])
 
   return (
-    <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="text-center">
-        <div className="text-4xl font-black text-[#00CFFF] mb-4">
-          <span ref={experienceRef}>5</span>+
-        </div>
-        <p className="text-white/60">Years Experience</p>
+    <div ref={statsRef} className="bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+      <div className="text-center mb-8">
+        <h3 className="text-white font-bold text-xl mb-2">Our Track Record</h3>
+        <p className="text-white/60 text-sm">Building trust through consistent delivery</p>
       </div>
-      <div className="text-center">
-        <div className="text-4xl font-black text-[#00CFFF] mb-4">
-          <span ref={projectsRef}>20</span>+
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="text-center group">
+          <div className="bg-gradient-to-br from-emerald-400/20 to-emerald-600/20 rounded-2xl p-6 border border-emerald-400/30 mb-4 transition-all duration-300 group-hover:scale-105">
+            <div className="text-5xl font-black text-emerald-400 mb-2">
+              <span ref={experienceRef}>5</span>+
+            </div>
+            <p className="text-white/70 font-medium">Years Experience</p>
+          </div>
         </div>
-        <p className="text-white/60">Projects Completed</p>
+        
+        <div className="text-center group">
+          <div className="bg-gradient-to-br from-cyan-400/20 to-cyan-600/20 rounded-2xl p-6 border border-cyan-400/30 mb-4 transition-all duration-300 group-hover:scale-105">
+            <div className="text-5xl font-black text-cyan-400 mb-2">
+              <span ref={projectsRef}>50</span>+
+            </div>
+            <p className="text-white/70 font-medium">Africa Projects</p>
+          </div>
+        </div>
+        
+        <div className="text-center group">
+          <div className="bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-2xl p-6 border border-blue-400/30 mb-4 transition-all duration-300 group-hover:scale-105">
+            <div className="text-5xl font-black text-blue-400 mb-2">
+              <span ref={satisfactionRef}>100</span>%
+            </div>
+            <p className="text-white/70 font-medium">Client Satisfaction</p>
+          </div>
+        </div>
       </div>
-      <div className="text-center">
-        <div className="text-4xl font-black text-[#00CFFF] mb-4">
-          <span ref={satisfactionRef}>100</span>%
+      
+      <div className="mt-8 text-center">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-400/10 to-cyan-400/10 px-4 py-2 rounded-full border border-emerald-400/20">
+          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+          <span className="text-white/80 text-sm font-medium">Ready for your project</span>
         </div>
-        <p className="text-white/60">Client Satisfaction</p>
       </div>
     </div>
   )
