@@ -69,7 +69,7 @@ export function AutoScrollCarousel({ images = [] }) {
             <div className="w-full h-full rounded-2xl overflow-hidden bg-neutral-800">
               <img 
                 src={src}
-                alt={`African landscape ${(index % images.length) + 1}`}
+                alt={`Cape Town landscape ${(index % images.length) + 1}`}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 draggable={false}
               />
