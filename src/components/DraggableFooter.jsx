@@ -95,11 +95,11 @@ export function DraggableFooter() {
     // Add hover effects after animation completes
     tl.call(() => {
       // Add hover effects to contact buttons
-      if (contactButtons && typeof window !== 'undefined') {
-        const buttons = contactButtons.querySelectorAll('a')
+      if (contactButtonsRef.current && typeof window !== 'undefined') {
+        const buttons = contactButtonsRef.current.querySelectorAll('a')
         buttons.forEach(button => {
           button.addEventListener('mouseenter', () => {
-            gsap.to(button, { scale: 1.05, rotation: Math.random() * 5 - 2.5, duration: 0.3, ease: "power2.out" })
+            gsap.to(button, { scale: 1.1, rotation: Math.random() * 3 - 1.5, duration: 0.3, ease: "power2.out" })
           })
           button.addEventListener('mouseleave', () => {
             gsap.to(button, { scale: 1, rotation: 0, duration: 0.3, ease: "power2.out" })
@@ -108,11 +108,11 @@ export function DraggableFooter() {
       }
 
       // Add hover effects to decorative elements
-      if (decorativeElements && typeof window !== 'undefined') {
-        const elements = decorativeElements.children
+      if (decorativeElementsRef.current && typeof window !== 'undefined') {
+        const elements = decorativeElementsRef.current.querySelectorAll('[class*="cursor-pointer"]')
         Array.from(elements).forEach(element => {
           element.addEventListener('mouseenter', () => {
-            gsap.to(element, { scale: 1.1, rotation: Math.random() * 10 - 5, duration: 0.3, ease: "power2.out" })
+            gsap.to(element, { scale: 1.2, rotation: Math.random() * 15 - 7.5, duration: 0.3, ease: "power2.out" })
           })
           element.addEventListener('mouseleave', () => {
             gsap.to(element, { scale: 1, rotation: 0, duration: 0.3, ease: "power2.out" })
@@ -127,127 +127,43 @@ export function DraggableFooter() {
     }
   }, [])
 
-  const contactButtons = [
-    { id: 'reach-out', text: 'Reach out', color: 'bg-green-500', href: 'mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I\'m interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards' },
-    { id: 'lets-chat', text: "Let's chat", color: 'bg-red-700', href: '/contact' },
-    { id: 'send-message', text: 'Send a message', color: 'bg-pink-500', href: 'mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I\'m interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards' }
-  ]
 
-  const decorativeElements = [
-    { id: 'say-bubble', text: 'say hi!!', color: 'bg-yellow-400', textColor: 'text-black' },
-    { id: 'mail-icon', color: 'bg-cyan-400', isIcon: true }
-  ]
 
   return (
     <div 
-      className="bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 py-20"
+      className="bg-gradient-to-br from-pink-100 via-white to-pink-50 py-20"
       ref={containerRef}
       data-footer
     >
       <Container>
-        {/* Mobile Layout */}
-        <div className="lg:hidden">
-          <div className="bg-white rounded-3xl p-8 mx-4 shadow-2xl">
-            {/* Location & Time */}
-            <div ref={locationTimeRef} className="flex justify-between items-center mb-12">
-              <span className="text-lg font-bold text-pink-600">
-                Cape Town, South Africa
-              </span>
-              <span className="text-lg font-bold text-pink-600">
-                {new Date().toLocaleTimeString('en-US', { 
-                  hour: '2-digit', 
-                  minute: '2-digit',
-                  hour12: true 
-                }).toUpperCase()}
-              </span>
-            </div>
-            
-            {/* Main Heading */}
-            <h2 ref={titleRef} className="text-4xl sm:text-5xl font-black text-pink-600 mb-12 text-center leading-tight">
-              Let&apos;s work<br/>together!
-            </h2>
-            
-            {/* Email Section */}
-            <div ref={contactButtonsRef} className="mb-8">
-              <div className="bg-pink-100 rounded-2xl p-6">
-                <p className="text-lg font-bold text-pink-600 mb-2">Email me</p>
-                <a 
-                  href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
-                  className="text-xl font-medium text-pink-500 hover:text-pink-700 transition-colors"
-                >
-                  mike@lankchilled.com
-                </a>
-              </div>
-            </div>
-            
-            {/* Message Button */}
-            <div className="mb-12">
-              <a
-                href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
-                className="block w-full bg-pink-400 hover:bg-pink-500 text-white font-black text-2xl py-6 rounded-2xl text-center transition-colors shadow-lg"
-              >
-                Send me a message
-              </a>
-            </div>
-            
-            {/* Social Links */}
-            <div ref={socialLinksRef}>
-              <div className="grid grid-cols-2 gap-4 text-center text-pink-600">
-                <a href="#" className="font-medium hover:text-pink-800 transition-colors">Instagram</a>
-                <a href="#" className="font-medium hover:text-pink-800 transition-colors">Unsplash</a>
-                <a href="#" className="font-medium hover:text-pink-800 transition-colors">YouTube</a>
-                <a href="#" className="font-medium hover:text-pink-800 transition-colors">TikTok</a>
-              </div>
-              <div className="text-center mt-4">
-                <span className="text-pink-600 font-medium">©2025</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <FadeIn className="hidden lg:block text-center">
-          <div ref={locationTimeRef} className="mb-8">
-            <span className="text-sm font-medium text-white/80 tracking-widest uppercase">
+        <div className="bg-white rounded-[2.5rem] p-8 lg:p-16 mx-4 shadow-2xl border border-pink-100">
+          {/* Header with Location & Time */}
+          <div ref={locationTimeRef} className="flex justify-between items-center mb-16">
+            <span className="text-lg font-bold text-pink-600">
               Cape Town, South Africa
             </span>
-            <span className="ml-8 text-sm font-medium text-yellow-300">
+            <span className="text-lg font-bold text-pink-600">
               {new Date().toLocaleTimeString('en-US', { 
                 hour: '2-digit', 
                 minute: '2-digit',
-                hour12: false 
-              })} AM
+                hour12: true 
+              }).toUpperCase()}
             </span>
           </div>
           
-          <h2 ref={titleRef} className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-16 tracking-tight">
-            Let&apos;s work together!
+          {/* Main Heading */}
+          <h2 ref={titleRef} className="text-5xl sm:text-6xl lg:text-7xl font-black text-pink-600 mb-20 text-center leading-[0.9] tracking-tight">
+            Let's work together!
           </h2>
           
-          {/* Draggable Contact Elements */}
-          <div className="relative min-h-[400px] flex items-center justify-center">
-            <div ref={contactButtonsRef} className="flex flex-wrap items-center justify-center gap-12 relative max-w-4xl">
-              
-              {/* Contact Buttons - Much Larger */}
-              {contactButtons.map((button, index) => (
-                <a
-                  key={button.id}
-                  href={button.href}
-                  className={`px-12 py-6 lg:px-16 lg:py-8 ${button.color} text-white font-black text-2xl lg:text-3xl rounded-full transition-all duration-300 shadow-2xl cursor-pointer select-none border-4 border-white/20`}
-                  style={{ 
-                    transform: `translate(${Math.random() * 15 - 7.5}px, ${Math.random() * 15 - 7.5}px) rotate(${Math.random() * 6 - 3}deg)`
-                  }}
-                >
-                  {button.text}
-                </a>
-              ))}
-            </div>
-
-            {/* Decorative Elements */}
-            <div ref={decorativeElementsRef} className="absolute inset-0 pointer-events-none">
-              {/* Left decorative element - Say Hi */}
+          {/* Interactive Contact Elements Layout */}
+          <div className="relative min-h-[300px] lg:min-h-[400px] flex items-center justify-center mb-20">
+            
+            {/* Left Decorative Elements */}
+            <div ref={decorativeElementsRef} className="absolute left-0 lg:left-8 top-1/2 transform -translate-y-1/2">
+              {/* Say Hi Bubble */}
               <div 
-                className="absolute -left-32 lg:-left-40 top-1/2 transform -translate-y-1/2 w-24 h-24 lg:w-28 lg:h-28 bg-yellow-400 rounded-full flex items-center justify-center -rotate-12 cursor-pointer select-none shadow-xl pointer-events-auto transition-all duration-300"
+                className="w-24 h-24 lg:w-32 lg:h-32 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 cursor-pointer select-none shadow-xl mb-8 transition-all duration-300 hover:scale-110"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(-12deg)`
                 }}
@@ -255,44 +171,86 @@ export function DraggableFooter() {
                 <span className="text-lg lg:text-xl font-black text-black leading-tight text-center">say<br/>hi!!</span>
               </div>
               
-              {/* Right decorative element - Mail Icon */}
+              {/* Leopard Print Circle */}
               <div 
-                className="absolute -right-32 lg:-right-40 top-1/2 transform -translate-y-1/2 w-24 h-24 lg:w-28 lg:h-28 bg-cyan-400 rounded-full flex items-center justify-center rotate-12 cursor-pointer select-none shadow-xl pointer-events-auto transition-all duration-300"
+                className="w-20 h-20 lg:w-24 lg:h-24 rounded-full cursor-pointer select-none shadow-lg transition-all duration-300 hover:scale-110"
+                style={{ 
+                  background: 'radial-gradient(circle at 30% 20%, #D2691E 20%, #8B4513 20%, #8B4513 40%, #D2691E 40%, #D2691E 60%, #8B4513 60%)',
+                  backgroundSize: '12px 12px',
+                  transform: `translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px) rotate(${Math.random() * 20 - 10}deg)`
+                }}
+              >
+                <div className="w-full h-full rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-3 h-3 lg:w-4 lg:h-4 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Center Contact Buttons */}
+            <div ref={contactButtonsRef} className="flex flex-col items-center gap-6 lg:gap-8">
+              {/* Reach out - Top */}
+              <a
+                href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
+                className="bg-green-400 hover:bg-green-500 text-black font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-all duration-300 shadow-lg hover:scale-105 transform"
+                style={{ 
+                  transform: `translate(${Math.random() * 20 - 10}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
+                }}
+              >
+                Reach out
+              </a>
+              
+              {/* Let's chat - Middle */}
+              <a
+                href="/contact"
+                className="bg-red-700 hover:bg-red-800 text-white font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-all duration-300 shadow-lg hover:scale-105 transform"
+                style={{ 
+                  transform: `translate(${Math.random() * 30 - 15}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
+                }}
+              >
+                Let's chat
+              </a>
+              
+              {/* Send a message - Bottom (Largest) */}
+              <a
+                href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
+                className="bg-pink-500 hover:bg-pink-600 text-white font-black text-2xl lg:text-3xl px-12 lg:px-16 py-6 lg:py-8 rounded-full transition-all duration-300 shadow-xl hover:scale-105 transform"
+                style={{ 
+                  transform: `translate(${Math.random() * 25 - 12.5}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
+                }}
+              >
+                Send a message
+              </a>
+            </div>
+
+            {/* Right Mail Icon */}
+            <div className="absolute right-0 lg:right-8 top-1/2 transform -translate-y-1/2">
+              <div 
+                className="w-24 h-24 lg:w-32 lg:h-32 bg-cyan-400 rounded-full flex items-center justify-center transform rotate-12 cursor-pointer select-none shadow-xl transition-all duration-300 hover:scale-110"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(12deg)`
                 }}
               >
-                <svg className="w-12 h-12 lg:w-14 lg:h-14 text-black" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 lg:w-16 lg:h-16 text-black" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
-              </div>
-              
-              {/* Pattern decorative element */}
-              <div 
-                className="absolute -left-44 lg:-left-52 -top-16 w-20 h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center cursor-pointer select-none shadow-lg pointer-events-auto transition-all duration-300"
-                style={{ 
-                  background: 'radial-gradient(circle, #8B4513 30%, #D2691E 30%, #D2691E 35%, #8B4513 35%, #8B4513 40%, #D2691E 40%, #D2691E 45%, #8B4513 45%)',
-                  backgroundSize: '8px 8px',
-                  transform: `translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px) rotate(${Math.random() * 20 - 10}deg)`
-                }}
-              >
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-black rounded-full"></div>
-                </div>
               </div>
             </div>
           </div>
           
-          <div ref={socialLinksRef} className="text-center border-t border-white/20 pt-8 mt-16">
-            <p className="text-sm text-white/60 mb-4">©2025</p>
-            <div className="flex justify-center items-center gap-8 text-sm text-white/60">
-              <a href="#" className="hover:text-white transition-colors">Instagram</a>
-              <a href="#" className="hover:text-white transition-colors">YouTube</a>
-              <a href="#" className="hover:text-white transition-colors">Unsplash</a>
-              <a href="#" className="hover:text-white transition-colors">TikTok</a>
+          {/* Footer Links */}
+          <div ref={socialLinksRef} className="flex justify-between items-center">
+            <span className="text-pink-600 font-bold text-lg">©2025</span>
+            
+            <div className="flex gap-8 lg:gap-12">
+              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">Instagram</a>
+              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">YouTube</a>
+              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">Unsplash</a>
+              <a href="#" className="text-pink-600 font-medium hover:text-pink-800 transition-colors text-lg">TikTok</a>
             </div>
           </div>
-        </FadeIn>
+        </div>
       </Container>
     </div>
   )

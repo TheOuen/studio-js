@@ -47,7 +47,7 @@ function Services() {
   ];
 
   return (
-    <div className="relative z-10 bg-black py-40">
+    <div className="relative z-20 bg-black py-40">
       <Container>
         <GSAPTextReveal>
           <div className="mb-20 px-4">
