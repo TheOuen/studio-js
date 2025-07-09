@@ -10,25 +10,25 @@ export function StatsCarousel() {
   
   const stats = useMemo(() => [
     {
-      number: 13,
-      title: 'Countries I&apos;ve visited with family and friends',
-      subtitle: 'My top 3 are Japan, Thailand, and Guatemala.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
-      backgroundColor: 'from-pink-400 to-pink-600'
+      number: 50,
+      title: 'Web development projects delivered across Africa',
+      subtitle: 'From Cape Town startups to Lagos fintech companies.',
+      image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop',
+      backgroundColor: 'from-green-400 to-emerald-600'
     },
     {
-      number: 31,
-      title: 'Spotify playlists I&apos;ve created. But I mainly listen to the blend my boyfriend and I have.',
-      subtitle: 'Music is life and keeps me creative and inspired.',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800&auto=format&fit=crop',
-      backgroundColor: 'from-pink-400 to-pink-600'
+      number: 15,
+      title: 'African countries where my web solutions are actively used',
+      subtitle: 'Proud to contribute to Africa&apos;s digital transformation.',
+      image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=800&auto=format&fit=crop',
+      backgroundColor: 'from-orange-400 to-red-600'
     },
     {
-      number: 10,
-      title: 'Creative projects completed this year',
-      subtitle: 'From web design to 3D renders, each one unique.',
-      image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=800&auto=format&fit=crop',
-      backgroundColor: 'from-pink-400 to-pink-600'
+      number: 100,
+      title: 'React & Next.js components in my development toolkit',
+      subtitle: 'Building fast, scalable web applications with modern tech.',
+      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=800&auto=format&fit=crop',
+      backgroundColor: 'from-blue-400 to-purple-600'
     }
   ], []);
 
@@ -67,7 +67,7 @@ export function StatsCarousel() {
   const currentStat = stats[currentIndex]
 
   return (
-    <div className="relative z-20 bg-gradient-to-br from-pink-400 via-pink-500 to-pink-600 py-32">
+    <div className="relative z-20 bg-gradient-to-br from-emerald-400 via-teal-500 to-blue-600 py-32">
       <Container>
         <GSAPStaggerChildren stagger={0.3}>
           <div className="flex flex-col lg:flex-row gap-8 items-center min-h-[60vh]">

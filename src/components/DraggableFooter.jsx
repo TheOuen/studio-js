@@ -1,14 +1,15 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Draggable } from 'gsap/Draggable'
 import { Container } from './Container'
 import { FadeIn } from './FadeIn'
 
-// Register ScrollTrigger plugin
+// Register GSAP plugins
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger, Draggable)
 }
 
 export function DraggableFooter() {
@@ -93,15 +94,62 @@ export function DraggableFooter() {
       ease: 'back.out(1.7)'
     }, '-=0.5')
 
+    // Make elements draggable after animation completes
+    tl.call(() => {
+      // Make contact buttons draggable
+      if (contactButtons && typeof window !== 'undefined') {
+        const buttons = contactButtons.querySelectorAll('a')
+        buttons.forEach(button => {
+          Draggable.create(button, {
+            type: "x,y",
+            bounds: container,
+            inertia: true,
+            edgeResistance: 0.65,
+            onDrag: function() {
+              gsap.set(this.target, { rotation: Math.random() * 10 - 5 })
+            },
+            onDragEnd: function() {
+              gsap.to(this.target, { rotation: 0, duration: 0.5, ease: "back.out(1.7)" })
+            }
+          })
+        })
+      }
+
+      // Make decorative elements draggable
+      if (decorativeElements && typeof window !== 'undefined') {
+        const elements = decorativeElements.querySelectorAll('[draggable]')
+        elements.forEach(element => {
+          Draggable.create(element, {
+            type: "x,y",
+            bounds: container,
+            inertia: true,
+            edgeResistance: 0.65,
+            onDrag: function() {
+              gsap.set(this.target, { scale: 1.1, rotation: Math.random() * 20 - 10 })
+            },
+            onDragEnd: function() {
+              gsap.to(this.target, { 
+                scale: 1, 
+                rotation: 0, 
+                duration: 0.5, 
+                ease: "elastic.out(1, 0.3)" 
+              })
+            }
+          })
+        })
+      }
+    })
+
     return () => {
       ScrollTrigger.getAll().forEach(st => st.kill())
+      Draggable.getAll().forEach(d => d.kill())
     }
   }, [])
 
   const contactButtons = [
-    { id: 'reach-out', text: 'Reach out', color: 'bg-green-500', href: 'mailto:mike@lankchilled.com' },
+    { id: 'reach-out', text: 'Reach out', color: 'bg-green-500', href: 'mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I\'m interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards' },
     { id: 'lets-chat', text: "Let's chat", color: 'bg-red-700', href: '/contact' },
-    { id: 'send-message', text: 'Send a message', color: 'bg-pink-500', href: 'mailto:mike@lankchilled.com' }
+    { id: 'send-message', text: 'Send a message', color: 'bg-pink-500', href: 'mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I\'m interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards' }
   ]
 
   const decorativeElements = [
@@ -163,7 +211,7 @@ export function DraggableFooter() {
               <div className="bg-pink-100 rounded-2xl p-6">
                 <p className="text-lg font-bold text-pink-600 mb-2">Email me</p>
                 <a 
-                  href="mailto:mike@lankchilled.com"
+                  href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
                   className="text-xl font-medium text-pink-500 hover:text-pink-700 transition-colors"
                 >
                   mike@lankchilled.com
@@ -174,7 +222,7 @@ export function DraggableFooter() {
             {/* Message Button */}
             <div className="mb-12">
               <a
-                href="mailto:mike@lankchilled.com"
+                href="mailto:mike@lankchilled.com?subject=Project Inquiry&body=Hi Mike,%0D%0A%0D%0AI came across your website and would like to inquire about a potential project. I'm interested in discussing:%0D%0A%0D%0A- [Your project type: Web Design, Development, 3D Rendering, etc.]%0D%0A- [Brief project description]%0D%0A- [Timeline and budget if known]%0D%0A%0D%0ALooking forward to hearing from you!%0D%0A%0D%0ABest regards"
                 className="block w-full bg-pink-400 hover:bg-pink-500 text-white font-black text-2xl py-6 rounded-2xl text-center transition-colors shadow-lg"
               >
                 Send me a message
