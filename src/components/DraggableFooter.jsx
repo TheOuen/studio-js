@@ -1,19 +1,17 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Draggable } from 'gsap/Draggable'
 import { Container } from './Container'
 import { FadeIn } from './FadeIn'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, Draggable)
+  gsap.registerPlugin(ScrollTrigger)
 }
 
 export function DraggableFooter() {
-  const [draggedItem, setDraggedItem] = useState(null)
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const locationTimeRef = useRef(null)
@@ -94,47 +92,30 @@ export function DraggableFooter() {
       ease: 'back.out(1.7)'
     }, '-=0.5')
 
-    // Make elements draggable after animation completes
+    // Add hover effects after animation completes
     tl.call(() => {
-      // Make contact buttons draggable
+      // Add hover effects to contact buttons
       if (contactButtons && typeof window !== 'undefined') {
         const buttons = contactButtons.querySelectorAll('a')
         buttons.forEach(button => {
-          Draggable.create(button, {
-            type: "x,y",
-            bounds: container,
-            inertia: true,
-            edgeResistance: 0.65,
-            onDrag: function() {
-              gsap.set(this.target, { rotation: Math.random() * 10 - 5 })
-            },
-            onDragEnd: function() {
-              gsap.to(this.target, { rotation: 0, duration: 0.5, ease: "back.out(1.7)" })
-            }
+          button.addEventListener('mouseenter', () => {
+            gsap.to(button, { scale: 1.05, rotation: Math.random() * 5 - 2.5, duration: 0.3, ease: "power2.out" })
+          })
+          button.addEventListener('mouseleave', () => {
+            gsap.to(button, { scale: 1, rotation: 0, duration: 0.3, ease: "power2.out" })
           })
         })
       }
 
-      // Make decorative elements draggable
+      // Add hover effects to decorative elements
       if (decorativeElements && typeof window !== 'undefined') {
-        const elements = decorativeElements.querySelectorAll('[draggable]')
-        elements.forEach(element => {
-          Draggable.create(element, {
-            type: "x,y",
-            bounds: container,
-            inertia: true,
-            edgeResistance: 0.65,
-            onDrag: function() {
-              gsap.set(this.target, { scale: 1.1, rotation: Math.random() * 20 - 10 })
-            },
-            onDragEnd: function() {
-              gsap.to(this.target, { 
-                scale: 1, 
-                rotation: 0, 
-                duration: 0.5, 
-                ease: "elastic.out(1, 0.3)" 
-              })
-            }
+        const elements = decorativeElements.children
+        Array.from(elements).forEach(element => {
+          element.addEventListener('mouseenter', () => {
+            gsap.to(element, { scale: 1.1, rotation: Math.random() * 10 - 5, duration: 0.3, ease: "power2.out" })
+          })
+          element.addEventListener('mouseleave', () => {
+            gsap.to(element, { scale: 1, rotation: 0, duration: 0.3, ease: "power2.out" })
           })
         })
       }
@@ -142,7 +123,7 @@ export function DraggableFooter() {
 
     return () => {
       ScrollTrigger.getAll().forEach(st => st.kill())
-      Draggable.getAll().forEach(d => d.kill())
+      // Draggable instances are automatically cleaned up when components unmount
     }
   }, [])
 
@@ -157,30 +138,10 @@ export function DraggableFooter() {
     { id: 'mail-icon', color: 'bg-cyan-400', isIcon: true }
   ]
 
-  const handleDragStart = (e, item) => {
-    setDraggedItem(item)
-    e.dataTransfer.effectAllowed = 'move'
-  }
-
-  const handleDragEnd = (e) => {
-    setDraggedItem(null)
-  }
-
-  const handleDragOver = (e) => {
-    e.preventDefault()
-  }
-
-  const handleDrop = (e) => {
-    e.preventDefault()
-    setDraggedItem(null)
-  }
-
   return (
     <div 
       className="bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 py-20"
       ref={containerRef}
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
       data-footer
     >
       <Container>
@@ -272,18 +233,9 @@ export function DraggableFooter() {
                 <a
                   key={button.id}
                   href={button.href}
-                  className={`px-12 py-6 lg:px-16 lg:py-8 ${button.color} text-white font-black text-2xl lg:text-3xl rounded-full hover:scale-105 transition-all duration-300 shadow-2xl cursor-grab active:cursor-grabbing select-none border-4 border-white/20`}
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, button)}
-                  onDragEnd={handleDragEnd}
+                  className={`px-12 py-6 lg:px-16 lg:py-8 ${button.color} text-white font-black text-2xl lg:text-3xl rounded-full transition-all duration-300 shadow-2xl cursor-pointer select-none border-4 border-white/20`}
                   style={{ 
-                    opacity: draggedItem?.id === button.id ? 0.5 : 1,
                     transform: `translate(${Math.random() * 15 - 7.5}px, ${Math.random() * 15 - 7.5}px) rotate(${Math.random() * 6 - 3}deg)`
-                  }}
-                  onClick={(e) => {
-                    if (draggedItem) {
-                      e.preventDefault()
-                    }
                   }}
                 >
                   {button.text}
@@ -295,12 +247,8 @@ export function DraggableFooter() {
             <div ref={decorativeElementsRef} className="absolute inset-0 pointer-events-none">
               {/* Left decorative element - Say Hi */}
               <div 
-                className="absolute -left-32 lg:-left-40 top-1/2 transform -translate-y-1/2 w-24 h-24 lg:w-28 lg:h-28 bg-yellow-400 rounded-full flex items-center justify-center -rotate-12 cursor-grab active:cursor-grabbing select-none shadow-xl pointer-events-auto"
-                draggable
-                onDragStart={(e) => handleDragStart(e, decorativeElements[0])}
-                onDragEnd={handleDragEnd}
+                className="absolute -left-32 lg:-left-40 top-1/2 transform -translate-y-1/2 w-24 h-24 lg:w-28 lg:h-28 bg-yellow-400 rounded-full flex items-center justify-center -rotate-12 cursor-pointer select-none shadow-xl pointer-events-auto transition-all duration-300"
                 style={{ 
-                  opacity: draggedItem?.id === 'say-bubble' ? 0.5 : 1,
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(-12deg)`
                 }}
               >
@@ -309,12 +257,8 @@ export function DraggableFooter() {
               
               {/* Right decorative element - Mail Icon */}
               <div 
-                className="absolute -right-32 lg:-right-40 top-1/2 transform -translate-y-1/2 w-24 h-24 lg:w-28 lg:h-28 bg-cyan-400 rounded-full flex items-center justify-center rotate-12 cursor-grab active:cursor-grabbing select-none shadow-xl pointer-events-auto"
-                draggable
-                onDragStart={(e) => handleDragStart(e, decorativeElements[1])}
-                onDragEnd={handleDragEnd}
+                className="absolute -right-32 lg:-right-40 top-1/2 transform -translate-y-1/2 w-24 h-24 lg:w-28 lg:h-28 bg-cyan-400 rounded-full flex items-center justify-center rotate-12 cursor-pointer select-none shadow-xl pointer-events-auto transition-all duration-300"
                 style={{ 
-                  opacity: draggedItem?.id === 'mail-icon' ? 0.5 : 1,
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(12deg)`
                 }}
               >
@@ -325,12 +269,8 @@ export function DraggableFooter() {
               
               {/* Pattern decorative element */}
               <div 
-                className="absolute -left-44 lg:-left-52 -top-16 w-20 h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing select-none shadow-lg pointer-events-auto"
-                draggable
-                onDragStart={(e) => handleDragStart(e, { id: 'pattern' })}
-                onDragEnd={handleDragEnd}
+                className="absolute -left-44 lg:-left-52 -top-16 w-20 h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center cursor-pointer select-none shadow-lg pointer-events-auto transition-all duration-300"
                 style={{ 
-                  opacity: draggedItem?.id === 'pattern' ? 0.5 : 1,
                   background: 'radial-gradient(circle, #8B4513 30%, #D2691E 30%, #D2691E 35%, #8B4513 35%, #8B4513 40%, #D2691E 40%, #D2691E 45%, #8B4513 45%)',
                   backgroundSize: '8px 8px',
                   transform: `translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px) rotate(${Math.random() * 20 - 10}deg)`
