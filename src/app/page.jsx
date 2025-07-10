@@ -21,7 +21,7 @@ function ProjectShowcase() {
       subtitle: 'Property brand identity, brochure design, and 3D renders',
       year: '2024',
       category: 'Brand & 3D',
-      image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=1200&auto=format&fit=crop',
       tags: ['Branding', '3D Visualization', 'Real Estate']
     },
     {
@@ -29,7 +29,7 @@ function ProjectShowcase() {
       subtitle: 'UI/UX and front-end build for a Cape Town design firm',
       year: '2024',
       category: 'Web Design',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1582550945154-019d3d1b5a84?q=80&w=1200&auto=format&fit=crop',
       tags: ['UI/UX', 'Frontend', 'Responsive']
     },
     {
@@ -37,7 +37,7 @@ function ProjectShowcase() {
       subtitle: 'Modern website for environmental organization',
       year: '2023',
       category: 'Environmental',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=1200&auto=format&fit=crop',
       tags: ['Web Design', 'Environmental', 'NGO']
     }
   ];
@@ -173,18 +173,18 @@ export default async function Home() {
               </div>
             </div>
             
-            {/* Auto-scrolling Cape Town Gallery */}
+            {/* Auto-scrolling Cape Town Landscapes Gallery */}
             <AutoScrollCarousel 
               images={[
-                'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1605026697045-94168371f2c6?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1611989892149-4df7b60bae8c?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=800&auto=format&fit=crop',
                 'https://images.unsplash.com/photo-1582550945154-019d3d1b5a84?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1560452095-7c9e6e2ce1e9?q=80&w=800&auto=format&fit=crop'
+                'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop'
               ]}
             />
 

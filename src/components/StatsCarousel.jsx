@@ -13,21 +13,21 @@ export function StatsCarousel() {
       number: 50,
       title: 'Web development projects delivered across Africa',
       subtitle: 'From Cape Town startups to Lagos fintech companies.',
-      image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-green-400 to-emerald-600'
     },
     {
       number: 15,
       title: 'African countries where my web solutions are actively used',
       subtitle: 'Proud to contribute to Africa&apos;s digital transformation.',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-orange-400 to-red-600'
     },
     {
       number: 100,
       title: 'React & Next.js components in my development toolkit',
       subtitle: 'Building fast, scalable web applications with modern tech.',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
       backgroundColor: 'from-blue-400 to-purple-600'
     }
   ], []);
