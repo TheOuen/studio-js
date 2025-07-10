@@ -11,11 +11,13 @@ export const metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.svg', sizes: '32x32' },
+      { url: '/favicon.svg', sizes: '16x16' },
     ],
     apple: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml', sizes: '180x180' },
     ],
+    shortcut: '/favicon.svg',
   },
 }
 
