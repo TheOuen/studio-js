@@ -7,7 +7,7 @@ import { IntroAnimation } from '@/components/IntroAnimation'
 import { DraggableFooter } from '@/components/DraggableFooter'
 import { AutoScrollCarousel } from '@/components/AutoScrollCarousel'
 import { StatsCarousel } from '@/components/StatsCarousel'
-import { AnimatedStats } from '@/components/AnimatedStats'
+
 import { CleanServices } from '@/components/CleanServices'
 
 function Services() {
@@ -21,7 +21,7 @@ function ProjectShowcase() {
       subtitle: 'Property brand identity, brochure design, and 3D renders',
       year: '2024',
       category: 'Brand & 3D',
-      image: 'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1753899497/Flat_Type_F__3D_1_qybbjm.png',
       tags: ['Branding', '3D Visualization', 'Real Estate']
     },
     {
@@ -29,7 +29,7 @@ function ProjectShowcase() {
       subtitle: 'UI/UX and front-end build for a Cape Town design firm',
       year: '2024',
       category: 'Web Design',
-      image: 'https://images.unsplash.com/photo-1582550945154-019d3d1b5a84?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1200&auto=format&fit=crop',
       tags: ['UI/UX', 'Frontend', 'Responsive']
     },
     {
@@ -37,7 +37,7 @@ function ProjectShowcase() {
       subtitle: 'Modern website for environmental organization',
       year: '2023',
       category: 'Environmental',
-      image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=1200&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1588597806695-20b64d48fe8e?q=80&w=1200&auto=format&fit=crop',
       tags: ['Web Design', 'Environmental', 'NGO']
     }
   ];
@@ -279,10 +279,7 @@ export default async function Home() {
                   </div>
                 </div>
                 
-                {/* Bottom Stats Bar */}
-                <div className="mt-16">
-                  <AnimatedStats />
-                </div>
+
               </div>
             </div>
           </FadeIn>
