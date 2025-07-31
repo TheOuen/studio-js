@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
+import { SafeImg } from '@/components/SafeImage'
+import { ImagePreloader } from '@/components/ImagePreloader'
 import { FadeIn } from '@/components/FadeIn'
 import { GSAPFadeUp, GSAPStaggerChildren, GSAPScaleOnHover, GSAPTextReveal, GSAPMorphOnScroll, GSAPParallax } from '@/components/GSAPAnimations'
 import { IntroAnimation } from '@/components/IntroAnimation'
@@ -63,10 +65,11 @@ function ProjectShowcase() {
                 <div className="group relative overflow-hidden rounded-3xl">
                   {/* Background Image */}
                   <div className="aspect-[16/10] lg:aspect-[21/9] overflow-hidden bg-neutral-800">
-                    <img 
+                    <SafeImg 
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading={index === 0 ? 'eager' : 'lazy'}
                     />
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -154,8 +157,21 @@ export const metadata = {
 }
 
 export default async function Home() {
+  // Critical images for preloading
+  const carouselImages = [
+    'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1582550945154-019d3d1b5a84?q=80&w=800&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=800&auto=format&fit=crop'
+  ]
+
+  const projectImages = [
+    'https://res.cloudinary.com/dwufoskyo/image/upload/v1753899497/Flat_Type_F__3D_1_qybbjm.png',
+    'https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1200&auto=format&fit=crop'
+  ]
+
   return (
     <IntroAnimation>
+      <ImagePreloader imageSources={[...carouselImages.slice(0, 3), ...projectImages.slice(0, 2)]} />
       <div className="relative min-h-screen bg-black overflow-hidden">
         <Container>
           <FadeIn className="pt-20 pb-16">

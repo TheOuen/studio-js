@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { SafeImg } from '@/components/SafeImage'
 
 export function AutoScrollCarousel({ images = [] }) {
   const carouselRef = useRef(null)
@@ -67,7 +68,7 @@ export function AutoScrollCarousel({ images = [] }) {
             className="flex-none w-80 h-80 p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-3xl"
           >
             <div className="w-full h-full rounded-2xl overflow-hidden bg-neutral-800">
-              <img 
+              <SafeImg 
                 src={src}
                 alt={`Beautiful landscape ${(index % images.length) + 1}`}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"

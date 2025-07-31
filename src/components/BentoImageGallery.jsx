@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { SafeImage } from '@/components/SafeImage'
 import { FadeIn } from '@/components/FadeIn'
 
 export function BentoImageGallery({ images = [] }) {
@@ -42,7 +42,7 @@ export function BentoImageGallery({ images = [] }) {
               key={index} 
               className={`relative overflow-hidden rounded-2xl ${image.className}`}
             >
-              <Image
+              <SafeImage
                 src={image.src}
                 alt={image.alt || `Project screenshot ${index + 1}`}
                 width={800}
