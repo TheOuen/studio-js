@@ -65,7 +65,7 @@ export function AutoScrollCarousel({ images = [] }) {
         {duplicatedImages.map((src, index) => (
           <div 
             key={index} 
-            className="flex-none w-80 h-80 p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-3xl"
+            className="flex-none w-80 h-80 p-3 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl"
           >
             <div className="w-full h-full rounded-2xl overflow-hidden bg-neutral-800">
               <SafeImg 

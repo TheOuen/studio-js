@@ -4,10 +4,10 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - Studio Plus',
-    default: 'Studio Plus - Design & Development Studio Cape Town',
+    template: '%s - Lank Chilled Studio',
+    default: 'Lank Chilled - Ship Products 10x Faster | Design & Development Studio Cape Town',
   },
-  description: 'Creative studio based in Cape Town. We specialize in UX/UI design, web development, app development, drone photography, and architectural renders for clients who value quality.',
+  description: 'World-class web applications that scale your business across Africa and beyond. Specializing in React, Next.js, and modern technologies. 98% client satisfaction, 50+ projects delivered across 15 African countries. Cape Town-based studio powering Africa\'s digital transformation.',
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },

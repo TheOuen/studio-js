@@ -13,22 +13,22 @@ export function StatsCarousel() {
       number: 50,
       title: 'Web development projects delivered across Africa',
       subtitle: 'From Cape Town startups to Lagos fintech companies.',
-      image: 'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=800&auto=format&fit=crop',
-      backgroundColor: 'from-green-400 to-emerald-600'
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042972/Lank%20Chilled/planet-volumes-HQLfJrtqmKg-unsplash.jpg',
+      backgroundColor: 'from-gray-800 to-black'
     },
     {
       number: 15,
       title: 'African countries where my web solutions are actively used',
       subtitle: 'Proud to contribute to Africa&apos;s digital transformation.',
-      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop',
-      backgroundColor: 'from-orange-400 to-red-600'
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042972/Lank%20Chilled/getty-images-W4W5UgPnQvw-unsplash.jpg',
+      backgroundColor: 'from-gray-700 to-black'
     },
     {
       number: 100,
       title: 'React & Next.js components in my development toolkit',
       subtitle: 'Building fast, scalable web applications with modern tech.',
-      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
-      backgroundColor: 'from-blue-400 to-purple-600'
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042971/Lank%20Chilled/viktor-forgacs-uWfXBePbvnw-unsplash.jpg',
+      backgroundColor: 'from-gray-900 to-black'
     }
   ], []);
 
@@ -67,13 +67,13 @@ export function StatsCarousel() {
   const currentStat = stats[currentIndex]
 
   return (
-    <div className="relative z-20 bg-gradient-to-br from-emerald-400 via-teal-500 to-blue-600 py-32">
+    <div className="relative z-20 bg-gradient-to-br from-neutral-900 via-black to-neutral-900 py-32">
       <Container>
         <GSAPStaggerChildren stagger={0.3}>
           <div className="flex flex-col lg:flex-row gap-8 items-center min-h-[60vh]">
             {/* Image */}
             <div className="lg:w-1/2">
-              <div className="p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-3xl transition-all duration-1000">
+              <div className="p-3 bg-gradient-to-br from-gray-700 to-gray-900 rounded-3xl transition-all duration-1000">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
                   <img 
                     key={currentIndex}

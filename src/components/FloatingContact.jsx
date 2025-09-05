@@ -44,7 +44,7 @@ export function FloatingContact() {
       <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center gap-4 pl-2 pr-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20"
+          className="inline-flex items-center gap-4 pl-2 pr-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20"
         >
           <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 flex-shrink-0">
             <Image

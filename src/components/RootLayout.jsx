@@ -25,14 +25,14 @@ function RootLayoutInner({ children }) {
         style={{ 
           borderTopLeftRadius: isHome ? 0 : 40, 
           borderTopRightRadius: isHome ? 0 : 40,
-          paddingTop: isHome ? 0 : '3.5rem'
+          paddingTop: 0
         }}
         className="relative flex flex-auto overflow-hidden bg-white"
       >
         <motion.div
           layout
           className="relative isolate flex w-full flex-col"
-          style={{ paddingTop: isHome ? 0 : '2.25rem' }}
+          style={{ paddingTop: 0 }}
         >
           {!isHome && (
             <GridPattern

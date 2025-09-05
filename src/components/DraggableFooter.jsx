@@ -424,18 +424,27 @@ export function DraggableFooter() {
 
   return (
     <div 
-      className="bg-gradient-to-br from-pink-100 via-white to-pink-50 py-20"
+      className="bg-black py-20"
       ref={containerRef}
       data-footer
     >
       <Container>
-        <div className="bg-white rounded-[2.5rem] p-8 lg:p-16 mx-4 shadow-2xl border border-pink-100">
+        <div className="bg-neutral-900 rounded-[2.5rem] p-8 lg:p-16 mx-4 shadow-2xl border border-white/10 relative overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 opacity-10">
+            <img 
+              src="https://res.cloudinary.com/dwufoskyo/image/upload/v1757042973/Lank%20Chilled/viktor-forgacs-5j8hd3QpRbo-unsplash.jpg"
+              alt="Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative z-10">
           {/* Header with Location & Time */}
           <div ref={locationTimeRef} className="flex justify-between items-center mb-16">
-            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-pink-600">
+            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-white">
               Cape Town, South Africa
             </span>
-            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-pink-600">
+            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-white">
               {(() => {
                 const time = new Date().toLocaleTimeString('en-US', { 
                   hour: '2-digit', 
@@ -457,8 +466,8 @@ export function DraggableFooter() {
           </div>
           
           {/* Main Heading */}
-          <h2 ref={titleRef} className="text-[clamp(50px,6vw,72px)] font-black text-pink-600 mb-20 text-center leading-[0.85] tracking-tight">
-            Let&apos;s work <span className="text-pink-800">together!</span>
+          <h2 ref={titleRef} className="text-[clamp(50px,6vw,72px)] font-black text-white mb-20 text-center leading-[0.85] tracking-tight">
+            Let&apos;s work <span className="text-gray-300">together!</span>
           </h2>
           
           {/* Interactive Contact Elements Layout - Physics Playground */}
@@ -466,13 +475,13 @@ export function DraggableFooter() {
             ref={interactiveAreaRef}
             className="relative min-h-[300px] lg:min-h-[400px] flex items-center justify-center mb-20 overflow-hidden"
             style={{ 
-              background: 'radial-gradient(circle at center, rgba(236, 72, 153, 0.03) 0%, transparent 70%)',
-              border: '2px dashed rgba(236, 72, 153, 0.1)',
+              background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%)',
+              border: '2px dashed rgba(255, 255, 255, 0.1)',
               borderRadius: '2rem'
             }}
           >
             {/* Drag instruction hint */}
-            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-pink-400 text-sm font-medium opacity-50 pointer-events-none">
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-gray-400 text-sm font-medium opacity-50 pointer-events-none">
               ✨ Drag elements around - they bounce off each other! ✨
             </div>
             
@@ -481,7 +490,7 @@ export function DraggableFooter() {
               {/* Say Hi Bubble */}
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="block w-24 h-24 lg:w-32 lg:h-32 bg-yellow-400 hover:bg-yellow-500 rounded-full flex items-center justify-center transform -rotate-12 cursor-grab select-none shadow-xl mb-8 transition-colors duration-300"
+                className="block w-24 h-24 lg:w-32 lg:h-32 bg-white hover:bg-gray-200 rounded-full flex items-center justify-center transform -rotate-12 cursor-grab select-none shadow-xl mb-8 transition-colors duration-300"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(-12deg)`
                 }}
@@ -512,7 +521,7 @@ export function DraggableFooter() {
               {/* Reach out - Top */}
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-green-400 hover:bg-green-500 text-black font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-colors duration-300 shadow-lg transform cursor-grab select-none"
+                className="bg-white hover:bg-gray-200 text-black font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-colors duration-300 shadow-lg transform cursor-grab select-none"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
@@ -523,7 +532,7 @@ export function DraggableFooter() {
               {/* Let's chat - Middle */}
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-red-700 hover:bg-red-800 text-white font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-colors duration-300 shadow-lg transform cursor-grab select-none"
+                className="bg-gray-800 hover:bg-gray-700 text-white font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-colors duration-300 shadow-lg transform cursor-grab select-none"
                 style={{ 
                   transform: `translate(${Math.random() * 30 - 15}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
@@ -534,7 +543,7 @@ export function DraggableFooter() {
               {/* Send a message - Bottom (Largest) */}
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-pink-500 hover:bg-pink-600 text-white font-black text-2xl lg:text-3xl px-12 lg:px-16 py-6 lg:py-8 rounded-full transition-colors duration-300 shadow-xl transform cursor-grab select-none"
+                className="bg-black hover:bg-gray-900 text-white font-black text-2xl lg:text-3xl px-12 lg:px-16 py-6 lg:py-8 rounded-full transition-colors duration-300 shadow-xl transform cursor-grab select-none border-2 border-white"
                 style={{ 
                   transform: `translate(${Math.random() * 25 - 12.5}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
                 }}
@@ -547,12 +556,12 @@ export function DraggableFooter() {
             <div className="absolute right-0 lg:right-8 top-1/2 transform -translate-y-1/2">
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="w-24 h-24 lg:w-32 lg:h-32 bg-cyan-400 hover:bg-cyan-500 rounded-full flex items-center justify-center transform rotate-12 cursor-grab select-none shadow-xl transition-colors duration-300"
+                className="w-24 h-24 lg:w-32 lg:h-32 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transform rotate-12 cursor-grab select-none shadow-xl transition-colors duration-300"
                 style={{ 
                   transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(12deg)`
                 }}
               >
-                <svg className="w-12 h-12 lg:w-16 lg:h-16 text-black pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 lg:w-16 lg:h-16 text-white pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
               </button>
@@ -561,7 +570,7 @@ export function DraggableFooter() {
           
           {/* Footer Links */}
           <div ref={socialLinksRef} className="flex justify-between items-center">
-            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-pink-600">©2025</span>
+            <span className="text-[clamp(16px,1.6vw,24px)] font-bold text-white">©2025</span>
             
             <div className="flex gap-8 lg:gap-12">
               {[
@@ -577,24 +586,25 @@ export function DraggableFooter() {
                 >
                   <div className="px-4 overflow-hidden h-10 py-2">
                     <div className="flex flex-col transition-transform duration-200 ease-[cubic-bezier(0.64,0.57,0.67,1.53)] group-hover:-translate-y-1/2">
-                      <span className="text-[clamp(16px,1.6vw,24px)] font-medium text-pink-600 group-hover:text-pink-800 transition-colors mb-1.5">
+                      <span className="text-[clamp(16px,1.6vw,24px)] font-medium text-white group-hover:text-gray-300 transition-colors mb-1.5">
                         {social.name}
                       </span>
-                      <span className="text-[clamp(16px,1.6vw,24px)] font-medium text-pink-600 group-hover:text-pink-800 transition-colors mb-1.5">
+                      <span className="text-[clamp(16px,1.6vw,24px)] font-medium text-white group-hover:text-gray-300 transition-colors mb-1.5">
                         {social.name}
                       </span>
                     </div>
                   </div>
                   
                   {/* Hover preview effect */}
-                  <div className="left-1/2 -translate-x-1/2 absolute -top-48 w-[200px] h-[120px] p-2 rounded-lg bg-pink-200/25 backdrop-blur-md opacity-0 translate-y-4 scale-95 pointer-events-none group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-10">
-                    <div className="w-full h-full bg-gradient-to-br from-pink-300 to-pink-500 rounded flex items-center justify-center">
+                  <div className="left-1/2 -translate-x-1/2 absolute -top-48 w-[200px] h-[120px] p-2 rounded-lg bg-gray-800/25 backdrop-blur-md opacity-0 translate-y-4 scale-95 pointer-events-none group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-10">
+                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded flex items-center justify-center">
                       <span className="text-white font-bold text-sm">{social.name}</span>
                     </div>
                   </div>
                 </a>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </Container>

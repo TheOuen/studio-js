@@ -2,220 +2,266 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Container } from '@/components/Container'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const services = [
   {
-    number: '01',
+    id: '01',
     title: 'Web Design',
-    description: 'User-friendly, scalable interfaces for websites and mobile apps. Built in Figma, designed to perform.',
-    tags: ['Interface Design', 'User Experience', 'Mobile First', 'Responsive Design', 'Figma', 'Prototyping'],
-    background: 'linear-gradient(135deg, #f472b6 0%, #ec4899 100%)',
-    image: 'https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=600&auto=format&fit=crop'
+    subtitle: 'Digital Experiences',
+    description: 'Crafting user-centric interfaces that captivate and convert',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop',
+    color: '#00CFFF'
   },
   {
-    number: '02',
-    title: 'Front-End Development',
-    description: 'Clean, modular front-end code with seamless animations and responsive behaviour. React-first.',
-    tags: ['React Development', 'GSAP Animations', 'TypeScript', 'Next.js', 'Performance', 'Modern Web'],
-    background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
-    image: 'https://images.unsplash.com/photo-1582550945154-019d3d1b5a84?q=80&w=600&auto=format&fit=crop'
+    id: '02', 
+    title: 'Development',
+    subtitle: 'Modern Solutions',
+    description: 'Building performant applications with cutting-edge technology',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop',
+    color: '#3B82F6'
   },
   {
-    number: '03',
-    title: '3D Rendering',
-    description: 'Striking photo-real renders for architecture, interiors, and real estate marketing.',
-    tags: ['3D Modeling', 'Photorealistic Renders', 'Architectural Viz', 'Interior Design', 'Real Estate', 'Lighting'],
-    background: 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)',
-    image: 'https://images.unsplash.com/photo-1473772251553-d195b1bf4aa5?q=80&w=600&auto=format&fit=crop'
+    id: '03',
+    title: '3D Design',
+    subtitle: 'Visual Storytelling',
+    description: 'Creating immersive worlds and photorealistic visualizations',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop',
+    color: '#8B5CF6'
   },
   {
-    number: '04',
-    title: 'Brand Design',
-    description: 'Visual storytelling through brand design, layout systems, and hand-crafted illustration.',
-    tags: ['Brand Identity', 'Layout Design', 'Typography', 'Color Theory', 'Illustration', 'Print Design'],
-    background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=600&auto=format&fit=crop'
+    id: '04',
+    title: 'Branding',
+    subtitle: 'Identity Systems',
+    description: 'Building memorable brands that resonate and endure',
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2000&auto=format&fit=crop',
+    color: '#EC4899'
   }
-];
-
-function ServiceCard({ service, index, isVisible }) {
-  return (
-    <div 
-      className={`service-card opacity-0 translate-y-16 transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : ''
-      }`}
-      style={{ 
-        transitionDelay: `${index * 150}ms`
-      }}
-    >
-      {/* Card Container with proper mobile margins and rounded borders */}
-      <div className="mx-4 sm:mx-6 lg:mx-8">
-        <div 
-          className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-white/10"
-          style={{ background: service.background }}
-        >
-          {/* Mobile-first responsive layout */}
-          <div className="flex flex-col space-y-6 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
-            
-            {/* Content Section */}
-            <div className="flex-1 lg:pr-8">
-              {/* Header with number - mobile optimized */}
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
-                <div className="mb-4 sm:mb-0">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight group-hover:scale-105 transition-transform duration-500">
-                    {service.title}
-                  </h3>
-                </div>
-                <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white/15 group-hover:text-white/30 transition-colors duration-500 self-start sm:self-auto">
-                  ({service.number})
-                </span>
-              </div>
-              
-              {/* Description - mobile optimized */}
-              <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 lg:mb-8 leading-relaxed">
-                {service.description}
-              </p>
-              
-              {/* Tags - mobile responsive grid */}
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                {service.tags.map((tag, tagIndex) => (
-                  <span 
-                    key={tag}
-                    className="tag-item px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-white bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
-                    style={{ 
-                      animationDelay: `${(index * 150) + (tagIndex * 100)}ms` 
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            {/* Image Section - mobile optimized */}
-            <div className="w-full lg:w-1/3 lg:mt-0">
-              <div className="p-3 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl sm:rounded-3xl group-hover:scale-105 transition-transform duration-700">
-                <div className="aspect-[16/10] sm:aspect-[4/3] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Subtle hover overlay */}
-          <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl sm:rounded-3xl"></div>
-        </div>
-      </div>
-    </div>
-  )
-}
+]
 
 export function CleanServices() {
-  const [visibleCards, setVisibleCards] = useState(new Set())
-  const [headerVisible, setHeaderVisible] = useState(false)
-  const headerRef = useRef(null)
-  const cardsRef = useRef([])
+  const [activeService, setActiveService] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const containerRef = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (entry.target === headerRef.current) {
-              setHeaderVisible(true)
-            } else {
-              const index = cardsRef.current.indexOf(entry.target)
-              if (index !== -1) {
-                setVisibleCards(prev => new Set([...prev, index]))
-              }
-            }
+            setIsVisible(true)
           }
         })
       },
-      {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-      }
+      { threshold: 0.1 }
     )
 
-    // Observe header
-    if (headerRef.current) {
-      observer.observe(headerRef.current)
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
     }
-
-    // Observe service cards
-    cardsRef.current.forEach(card => {
-      if (card) observer.observe(card)
-    })
 
     return () => observer.disconnect()
   }, [])
 
+  // Auto-rotate services
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveService((prev) => (prev + 1) % services.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <div className="relative z-20 bg-black py-20 sm:py-32 lg:py-40">
+    <section ref={containerRef} className="relative bg-black py-32 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black"></div>
+      
       <Container>
-        {/* Header - mobile optimized */}
-        <div 
-          ref={headerRef}
-          className={`mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 transition-all duration-1000 ease-out ${
-            headerVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-8'
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="relative z-10"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 tracking-tight">
-            SERVICES
-          </h2>
-          <p className="text-lg sm:text-xl text-white/60 max-w-2xl leading-relaxed">
-            Comprehensive creative solutions from concept to completion
-          </p>
-        </div>
-        
-        {/* Service Cards - mobile responsive spacing */}
-        <div className="space-y-8 sm:space-y-12 lg:space-y-16">
-          {services.map((service, index) => (
-            <div
-              key={service.number}
-              ref={el => cardsRef.current[index] = el}
+          {/* Clean Header */}
+          <div className="text-center mb-20">
+            <motion.h2 
+              className="text-7xl sm:text-8xl lg:text-9xl font-black text-white mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <ServiceCard 
-                service={service} 
-                index={index} 
-                isVisible={visibleCards.has(index)}
-              />
+              SERVICES
+            </motion.h2>
+            <motion.div 
+              className="w-24 h-1 bg-white/20 mx-auto"
+              initial={{ width: 0 }}
+              animate={isVisible ? { width: 96 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            />
+          </div>
+
+          {/* Main Content Area - Split Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[600px]">
+            
+            {/* Left Side - Image Display */}
+            <motion.div 
+              className="relative h-[500px] lg:h-[700px] overflow-hidden rounded-3xl"
+              initial={{ opacity: 0, x: -50 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <AnimatePresence mode="wait">
+                {services.map((service, index) => (
+                  activeService === index && (
+                    <motion.div
+                      key={service.id}
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.8 }}
+                      className="absolute inset-0"
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                      
+                      {/* Service number */}
+                      <div 
+                        className="absolute top-8 left-8 text-8xl font-black text-white/10"
+                        style={{ textShadow: '2px 2px 20px rgba(0,0,0,0.5)' }}
+                      >
+                        {service.id}
+                      </div>
+                    </motion.div>
+                  )
+                ))}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Right Side - Service Selector */}
+            <div className="space-y-6">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  onClick={() => setActiveService(index)}
+                  className={`relative cursor-pointer group transition-all duration-500 ${
+                    activeService === index ? 'scale-100' : 'scale-95 opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <div className={`p-8 rounded-2xl transition-all duration-500 ${
+                    activeService === index 
+                      ? 'bg-white/10 border-l-4' 
+                      : 'bg-white/5 border-l-4 border-transparent hover:bg-white/10'
+                  }`}
+                  style={{ 
+                    borderLeftColor: activeService === index ? service.color : 'transparent' 
+                  }}>
+                    {/* Service Content */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-3">
+                          <span className="text-sm font-medium text-white/40">
+                            {service.id}
+                          </span>
+                          <span 
+                            className="text-xs px-3 py-1 rounded-full font-medium"
+                            style={{ 
+                              backgroundColor: activeService === index ? `${service.color}20` : 'transparent',
+                              color: activeService === index ? service.color : 'white',
+                              border: `1px solid ${activeService === index ? service.color : 'transparent'}`
+                            }}
+                          >
+                            {service.subtitle}
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-3xl font-bold text-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                          {service.title}
+                        </h3>
+                        
+                        <AnimatePresence>
+                          {activeService === index && (
+                            <motion.p
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="text-white/60 text-lg leading-relaxed"
+                            >
+                              {service.description}
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      {/* Arrow Icon */}
+                      <div className={`ml-4 transition-all duration-300 ${
+                        activeService === index ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
+                      }`}>
+                        <svg 
+                          className="w-6 h-6" 
+                          fill="none" 
+                          stroke={service.color} 
+                          viewBox="0 0 24 24"
+                        >
+                          <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth={2} 
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                          />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Progress Bar */}
+                    {activeService === index && (
+                      <motion.div 
+                        className="mt-4 h-0.5 bg-white/10 rounded-full overflow-hidden"
+                      >
+                        <motion.div
+                          className="h-full"
+                          style={{ backgroundColor: service.color }}
+                          initial={{ width: '0%' }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 5, ease: 'linear' }}
+                        />
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+
+          {/* Bottom Navigation Dots */}
+          <div className="flex justify-center mt-16 gap-3">
+            {services.map((service, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveService(index)}
+                className={`transition-all duration-300 ${
+                  activeService === index 
+                    ? 'w-12 h-2' 
+                    : 'w-2 h-2'
+                } rounded-full`}
+                style={{ 
+                  backgroundColor: activeService === index ? service.color : 'rgba(255,255,255,0.2)'
+                }}
+              />
+            ))}
+          </div>
+        </motion.div>
       </Container>
-
-      <style jsx>{`
-        .service-card .tag-item {
-          animation: fadeInUp 0.6s ease-out forwards;
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* Ensure proper mobile touch targets */
-        @media (max-width: 640px) {
-          .service-card .tag-item {
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-        }
-      `}</style>
-    </div>
+    </section>
   )
-} 
+}

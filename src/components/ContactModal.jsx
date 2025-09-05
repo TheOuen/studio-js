@@ -72,11 +72,11 @@ export function ContactModal({ isOpen, onClose }) {
       />
       
       {/* Modal Content */}
-      <div className="modal-content relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-pink-50 to-pink-100 rounded-3xl p-8 lg:p-12">
+      <div className="modal-content relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 lg:p-12">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-12 h-12 bg-pink-500 hover:bg-pink-600 text-white rounded-full flex items-center justify-center transition-colors z-10"
+          className="absolute top-6 right-6 w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white rounded-full flex items-center justify-center transition-colors z-10"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -86,10 +86,10 @@ export function ContactModal({ isOpen, onClose }) {
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-5xl lg:text-6xl font-black text-pink-600 mb-4">
+            <h2 className="text-5xl lg:text-6xl font-black text-blue-600 mb-4">
               Let&apos;s create something amazing!
             </h2>
-            <p className="text-xl text-pink-700 font-medium">
+            <p className="text-xl text-blue-700 font-medium">
               Based in Cape Town, working globally
             </p>
           </div>
@@ -97,43 +97,43 @@ export function ContactModal({ isOpen, onClose }) {
           {/* Form Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Full Name */}
-            <div className="bg-pink-200/50 rounded-2xl p-6">
-              <label className="block text-pink-700 font-bold text-lg mb-2">
+            <div className="bg-blue-200/50 rounded-2xl p-6">
+              <label className="block text-blue-700 font-bold text-lg mb-2">
                 Full name
               </label>
               <input
                 type="text"
                 value={formData.fullName}
                 onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
-                className="w-full bg-transparent text-pink-800 text-lg font-medium placeholder-pink-400 border-none outline-none"
+                className="w-full bg-transparent text-blue-800 text-lg font-medium placeholder-blue-400 border-none outline-none"
                 placeholder="Your name"
               />
             </div>
 
             {/* Email */}
-            <div className="bg-pink-200/50 rounded-2xl p-6">
-              <label className="block text-pink-700 font-bold text-lg mb-2">
+            <div className="bg-blue-200/50 rounded-2xl p-6">
+              <label className="block text-blue-700 font-bold text-lg mb-2">
                 Email
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                className="w-full bg-transparent text-pink-800 text-lg font-medium placeholder-pink-400 border-none outline-none"
+                className="w-full bg-transparent text-blue-800 text-lg font-medium placeholder-blue-400 border-none outline-none"
                 placeholder="your@email.com"
               />
             </div>
 
             {/* Company */}
-            <div className="bg-pink-200/50 rounded-2xl p-6">
-              <label className="block text-pink-700 font-bold text-lg mb-2">
+            <div className="bg-blue-200/50 rounded-2xl p-6">
+              <label className="block text-blue-700 font-bold text-lg mb-2">
                 Company
               </label>
               <input
                 type="text"
                 value={formData.company}
                 onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                className="w-full bg-transparent text-pink-800 text-lg font-medium placeholder-pink-400 border-none outline-none"
+                className="w-full bg-transparent text-blue-800 text-lg font-medium placeholder-blue-400 border-none outline-none"
                 placeholder="Company name"
               />
             </div>
@@ -141,22 +141,22 @@ export function ContactModal({ isOpen, onClose }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Project Details */}
-            <div className="bg-pink-200/50 rounded-2xl p-6">
-              <label className="block text-pink-700 font-bold text-lg mb-2">
+            <div className="bg-blue-200/50 rounded-2xl p-6">
+              <label className="block text-blue-700 font-bold text-lg mb-2">
                 Project details
               </label>
               <textarea
                 value={formData.projectDetails}
                 onChange={(e) => setFormData(prev => ({ ...prev, projectDetails: e.target.value }))}
                 rows={6}
-                className="w-full bg-transparent text-pink-800 text-lg font-medium placeholder-pink-400 border-none outline-none resize-none"
+                className="w-full bg-transparent text-blue-800 text-lg font-medium placeholder-blue-400 border-none outline-none resize-none"
                 placeholder="Tell me about your vision and goals"
               />
             </div>
 
             {/* What can I do for you? */}
-            <div className="bg-pink-200/50 rounded-2xl p-6">
-              <label className="block text-pink-700 font-bold text-lg mb-4">
+            <div className="bg-blue-200/50 rounded-2xl p-6">
+              <label className="block text-blue-700 font-bold text-lg mb-4">
                 What can I help you with?
               </label>
               <div className="space-y-3">
@@ -167,8 +167,8 @@ export function ContactModal({ isOpen, onClose }) {
                     onClick={() => handleServiceToggle(service)}
                     className={`inline-block px-4 py-2 rounded-full border-2 transition-colors mr-2 mb-2 text-sm font-medium ${
                       formData.services.includes(service)
-                        ? 'bg-pink-500 text-white border-pink-500'
-                        : 'bg-transparent text-pink-700 border-pink-400 hover:border-pink-500'
+                        ? 'bg-blue-500 text-white border-blue-500'
+                        : 'bg-transparent text-blue-700 border-blue-400 hover:border-blue-500'
                     }`}
                   >
                     {service}
@@ -178,8 +178,8 @@ export function ContactModal({ isOpen, onClose }) {
             </div>
 
             {/* Budget Range */}
-            <div className="bg-pink-200/50 rounded-2xl p-6">
-              <label className="block text-pink-700 font-bold text-lg mb-4">
+            <div className="bg-blue-200/50 rounded-2xl p-6">
+              <label className="block text-blue-700 font-bold text-lg mb-4">
                 Project budget range (ZAR)
               </label>
               <div className="space-y-3">
@@ -190,8 +190,8 @@ export function ContactModal({ isOpen, onClose }) {
                     onClick={() => setFormData(prev => ({ ...prev, budget: range }))}
                     className={`inline-block px-4 py-2 rounded-full border-2 transition-colors mr-2 mb-2 text-sm font-medium ${
                       formData.budget === range
-                        ? 'bg-pink-500 text-white border-pink-500'
-                        : 'bg-transparent text-pink-700 border-pink-400 hover:border-pink-500'
+                        ? 'bg-blue-500 text-white border-blue-500'
+                        : 'bg-transparent text-blue-700 border-blue-400 hover:border-blue-500'
                     }`}
                   >
                     {range}
@@ -205,7 +205,7 @@ export function ContactModal({ isOpen, onClose }) {
           <div className="flex justify-center pt-8">
             <button
               type="submit"
-              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-black text-xl px-12 py-4 rounded-full flex items-center gap-3 transition-all duration-300 hover:scale-105 shadow-xl"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-black text-xl px-12 py-4 rounded-full flex items-center gap-3 transition-all duration-300 hover:scale-105 shadow-xl"
             >
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
