@@ -4,7 +4,7 @@ import "@/styles/editor.css"
 
 export default function Page() {
   return (
-    <div className="h-screen bg-background dark editor-dark">
+    <div className="h-screen bg-black dark editor-dark">
       <DesignEditor />
     </div>
   )

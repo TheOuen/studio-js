@@ -185,7 +185,7 @@ export function ClientLogos() {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <p className="text-white/60 text-lg mb-8">
-              Ready to join Africa's most successful brands?
+              Ready to join Africa&apos;s most successful brands?
             </p>
             
             <motion.button
@@ -195,7 +195,7 @@ export function ClientLogos() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="flex items-center gap-3">
-                <span>Let's Build Together</span>
+                <span>Let&apos;s Build Together</span>
                 <motion.svg 
                   className="w-5 h-5" 
                   fill="none" 
