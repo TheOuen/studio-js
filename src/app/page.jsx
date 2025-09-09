@@ -8,7 +8,8 @@ import { SafeImg } from '@/components/SafeImage'
 import { ImagePreloader } from '@/components/ImagePreloader'
 import { FadeIn } from '@/components/FadeIn'
 import { GSAPFadeUp, GSAPStaggerChildren, GSAPScaleOnHover, GSAPTextReveal, GSAPMorphOnScroll, GSAPParallax } from '@/components/GSAPAnimations'
-import { IntroAnimation } from '@/components/IntroAnimation'
+import { Navbar } from '@/components/Navbar'
+import { LandingHero } from '@/components/LandingHero'
 import { DraggableFooter } from '@/components/DraggableFooter'
 import { AutoScrollCarousel } from '@/components/AutoScrollCarousel'
 import { StatsCarousel } from '@/components/StatsCarousel'
@@ -257,9 +258,13 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       <ImagePreloader imageSources={[...carouselImages.slice(0, 3), ...projectImages.slice(0, 2)]} />
       
-      {/* Hero Section */}
+      {/* Landing Hero - Clean centered logo */}
+      <LandingHero />
+      
+      {/* Main Hero Section with content */}
       <HeroSection />
       
       {/* Image Carousel */}

@@ -46,14 +46,11 @@ export function FloatingContact() {
           onClick={() => setIsModalOpen(true)}
           className="inline-flex items-center gap-4 pl-2 pr-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20"
         >
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 flex-shrink-0">
-            <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&crop=face"
-              alt="Contact"
-              width={48}
-              height={48}
-              className="w-full h-full object-cover"
-            />
+          <div className="w-12 h-12 rounded-full bg-white flex-shrink-0 flex items-center justify-center">
+            <svg className="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="5" width="30" height="30" fill="black"/>
+              <rect x="5" y="5" width="30" height="30" stroke="black" strokeWidth="2"/>
+            </svg>
           </div>
           <span className="font-semibold text-lg tracking-wide">Contact</span>
         </button>
