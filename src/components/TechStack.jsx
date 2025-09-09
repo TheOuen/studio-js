@@ -125,10 +125,10 @@ export function TechStack() {
   }
 
   return (
-    <section className="relative bg-gradient-to-br from-black via-gray-900 to-black py-24 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-black via-gray-900 to-black py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <GSAPFadeUp>
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 backdrop-blur-sm rounded-full border border-blue-400/30 mb-6">
               <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
               <span className="text-blue-400 text-sm font-medium">Our Technology Stack</span>

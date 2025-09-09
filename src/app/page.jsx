@@ -36,7 +36,7 @@ function ProjectShowcase() {
       subtitle: 'Property brand identity, brochure design, and 3D renders',
       year: '2024',
       category: 'Brand & 3D',
-      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/doug-bagg-rKF4PhSVm18-unsplash_1.jpg',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
       tags: ['Branding', '3D Visualization', 'Real Estate']
     },
     {
@@ -44,7 +44,7 @@ function ProjectShowcase() {
       subtitle: 'UI/UX and front-end build for a Cape Town design firm',
       year: '2024',
       category: 'Web Design',
-      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/getty-images-SNXxMLLCXAo-unsplash.jpg',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
       tags: ['UI/UX', 'Frontend', 'Responsive']
     },
     {
@@ -52,7 +52,7 @@ function ProjectShowcase() {
       subtitle: 'Modern website for environmental organization',
       year: '2023',
       category: 'Environmental',
-      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042977/Lank%20Chilled/doug-bagg-gq7zqyp3aH4-unsplash_1.jpg',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
       tags: ['Web Design', 'Environmental', 'NGO']
     }
   ];
@@ -72,7 +72,7 @@ function ProjectShowcase() {
   }, [projects.length]);
 
   return (
-    <section id="work" className="relative z-30 bg-neutral-950 py-40">
+    <section id="work" className="relative z-30 bg-neutral-950 py-20">
       <Container>
         <GSAPFadeUp>
           <div className="mb-20 text-center">
@@ -246,14 +246,14 @@ function ProjectShowcase() {
 export default function Home() {
   // Critical images for preloading
   const carouselImages = [
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/unsplash-community-X8KACq5r54I-unsplash.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042977/Lank%20Chilled/getty-images-VaKLnB3lKk4-unsplash_1.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042976/Lank%20Chilled/getty-images-7vd9lRl6zZs-unsplash.jpg'
+    'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80',
+    'https://images.unsplash.com/photo-1661956602868-6ae368943878?w=800&q=80',
+    'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80'
   ]
 
   const projectImages = [
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/doug-bagg-rKF4PhSVm18-unsplash_1.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/getty-images-SNXxMLLCXAo-unsplash.jpg'
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'
   ]
 
   return (

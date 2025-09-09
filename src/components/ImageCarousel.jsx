@@ -10,11 +10,11 @@ export function ImageCarousel() {
   const intervalRef = useRef(null)
 
   const images = [
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/doug-bagg-rKF4PhSVm18-unsplash_1.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/getty-images-SNXxMLLCXAo-unsplash.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042977/Lank%20Chilled/doug-bagg-gq7zqyp3aH4-unsplash_1.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042978/Lank%20Chilled/unsplash-community-X8KACq5r54I-unsplash.jpg',
-    'https://res.cloudinary.com/dwufoskyo/image/upload/v1757042977/Lank%20Chilled/getty-images-VaKLnB3lKk4-unsplash_1.jpg'
+    'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80',
+    'https://images.unsplash.com/photo-1661956602868-6ae368943878?w=800&q=80',
+    'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80',
+    'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
+    'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80'
   ]
 
   // Auto scroll functionality
@@ -63,10 +63,10 @@ export function ImageCarousel() {
   const visibleImages = getVisibleImages()
 
   return (
-    <section className="relative bg-black py-20 overflow-hidden">
+    <section className="relative bg-black py-16 overflow-hidden">
       <div className="container mx-auto px-4">
         <GSAPFadeUp>
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
               Our Creative Journey
             </h2>
