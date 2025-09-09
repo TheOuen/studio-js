@@ -256,7 +256,7 @@ export default function Home() {
   ]
 
   return (
-    <IntroAnimation>
+    <>
       <ImagePreloader imageSources={[...carouselImages.slice(0, 3), ...projectImages.slice(0, 2)]} />
       
       {/* Hero Section */}
@@ -281,6 +281,6 @@ export default function Home() {
       <section id="contact">
         <DraggableFooter />
       </section>
-    </IntroAnimation>
+    </>
   )
 }

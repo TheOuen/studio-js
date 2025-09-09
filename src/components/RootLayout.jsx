@@ -27,7 +27,7 @@ function RootLayoutInner({ children }) {
           borderTopRightRadius: isHome ? 0 : 40,
           paddingTop: 0
         }}
-        className="relative flex flex-auto overflow-hidden bg-white"
+        className="relative flex flex-auto overflow-hidden bg-black"
       >
         <motion.div
           layout
