@@ -107,12 +107,10 @@ export function IntroAnimation({ children }) {
         </div>
       </nav>
 
-      {/* Main Content */}
-      {showContent && (
-        <div className="relative z-10 pt-16">
-          {children}
-        </div>
-      )}
+      {/* Main Content - Always render but control visibility */}
+      <div className={`relative z-10 pt-16 ${!showContent ? 'opacity-0' : 'opacity-100'}`}>
+        {children}
+      </div>
     </>
   )
 } 
