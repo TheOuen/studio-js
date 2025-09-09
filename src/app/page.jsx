@@ -8,7 +8,7 @@ import { SafeImg } from '@/components/SafeImage'
 import { ImagePreloader } from '@/components/ImagePreloader'
 import { FadeIn } from '@/components/FadeIn'
 import { GSAPFadeUp, GSAPStaggerChildren, GSAPScaleOnHover, GSAPTextReveal, GSAPMorphOnScroll, GSAPParallax } from '@/components/GSAPAnimations'
-// import { IntroAnimation } from '@/components/IntroAnimation'
+import { IntroAnimation } from '@/components/IntroAnimation'
 import { DraggableFooter } from '@/components/DraggableFooter'
 import { AutoScrollCarousel } from '@/components/AutoScrollCarousel'
 import { StatsCarousel } from '@/components/StatsCarousel'
@@ -256,7 +256,7 @@ export default function Home() {
   ]
 
   return (
-    <>
+    <IntroAnimation>
       <ImagePreloader imageSources={[...carouselImages.slice(0, 3), ...projectImages.slice(0, 2)]} />
       
       {/* Hero Section */}
@@ -281,6 +281,6 @@ export default function Home() {
       <section id="contact">
         <DraggableFooter />
       </section>
-    </>
+    </IntroAnimation>
   )
 }
