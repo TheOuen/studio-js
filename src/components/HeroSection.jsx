@@ -45,7 +45,7 @@ export function HeroSection() {
   }
 
   return (
-    <section id="home" className="relative min-h-screen bg-black overflow-hidden">
+    <section id="home" className="relative min-h-[80vh] bg-black overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -63,8 +63,8 @@ export function HeroSection() {
       ></div>
 
       <Container className="relative z-10">
-        <div className="flex min-h-screen items-center">
-          <div className="w-full py-20">
+        <div className="flex min-h-[80vh] items-center">
+          <div className="w-full py-12">
             
             {/* Trust indicator */}
             <GSAPFadeUp>

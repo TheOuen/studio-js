@@ -127,7 +127,7 @@ function ProjectShowcase() {
                 <div className="flex-none w-[85vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw] group relative overflow-hidden rounded-3xl snap-center">
                   {/* Background Image */}
                   <div className="aspect-[4/3] lg:aspect-[3/2] overflow-hidden bg-neutral-800">
-                    <SafeImg 
+                    <img 
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

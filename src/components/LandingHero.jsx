@@ -2,7 +2,7 @@
 
 export function LandingHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black">
+    <section className="relative min-h-[60vh] flex items-center justify-center bg-black">
       {/* Large centered logo text */}
       <div className="text-center">
         <h1 className="text-[12vw] sm:text-[10vw] md:text-[9vw] lg:text-[8vw] xl:text-[7vw] font-black text-white leading-none tracking-tighter">

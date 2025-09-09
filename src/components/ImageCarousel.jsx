@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SafeImg } from '@/components/SafeImage'
+// import { SafeImg } from '@/components/SafeImage'
 import { GSAPFadeUp } from '@/components/GSAPAnimations'
 
 export function ImageCarousel() {
@@ -120,7 +120,7 @@ export function ImageCarousel() {
                   {/* Blue gradient border */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl p-1">
                     <div className="w-full h-full rounded-2xl overflow-hidden bg-black">
-                      <SafeImg
+                      <img
                         src={imageData.src}
                         alt={`Gallery image ${imageData.index + 1}`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -170,7 +170,7 @@ export function ImageCarousel() {
                 {/* Blue gradient border */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl p-1">
                   <div className="w-full h-full rounded-2xl overflow-hidden bg-black">
-                    <SafeImg
+                    <img
                       src={images[currentIndex]}
                       alt={`Gallery image ${currentIndex + 1}`}
                       className="w-full h-full object-cover"
