@@ -11,9 +11,17 @@ export function IntroAnimation({ children }) {
   const navRef = useRef(null)
 
   useEffect(() => {
+    // Skip animation if refs are not ready
+    if (!textRef.current || !overlayRef.current || !navRef.current) {
+      setShowContent(true)
+      setAnimationComplete(true)
+      return
+    }
+
     const tl = gsap.timeline({
       onComplete: () => {
         setAnimationComplete(true)
+        setShowContent(true)
       }
     })
 
@@ -46,8 +54,7 @@ export function IntroAnimation({ children }) {
     .to(overlayRef.current, {
       opacity: 0,
       duration: 0.6,
-      ease: 'power2.inOut',
-      onComplete: () => setShowContent(true)
+      ease: 'power2.inOut'
     }, '-=0.4')
     .to(navRef.current, {
       opacity: 1,
@@ -56,8 +63,15 @@ export function IntroAnimation({ children }) {
       ease: 'power2.out'
     }, '-=0.3')
 
+    // Fallback timer to ensure content shows
+    const fallbackTimer = setTimeout(() => {
+      setShowContent(true)
+      setAnimationComplete(true)
+    }, 5000)
+
     return () => {
       tl.kill()
+      clearTimeout(fallbackTimer)
     }
   }, [])
 
@@ -107,8 +121,8 @@ export function IntroAnimation({ children }) {
         </div>
       </nav>
 
-      {/* Main Content - Always render but control visibility */}
-      <div className={`relative z-10 pt-16 ${!showContent ? 'opacity-0' : 'opacity-100'}`}>
+      {/* Main Content - Always render */}
+      <div className={`relative z-10 pt-16 transition-opacity duration-500 ${!showContent ? 'opacity-0' : 'opacity-100'}`}>
         {children}
       </div>
     </>
