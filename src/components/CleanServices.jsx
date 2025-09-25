@@ -36,22 +36,6 @@ const services = [
     description: 'Building memorable brands that resonate and endure',
     image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2000&auto=format&fit=crop',
     color: '#EC4899'
-  },
-  {
-    id: '05',
-    title: 'Wave',
-    subtitle: 'Messaging App',
-    description: 'Secure, intuitive messaging platform for seamless communication',
-    image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785861/Screenshot_2025-09-25_at_09.37.29_ruau4z.png',
-    color: '#7C3AED'
-  },
-  {
-    id: '06',
-    title: 'MobileVaxCertificate',
-    subtitle: 'Digital Health',
-    description: 'Convert vaccination certificates to Apple Wallet for convenient access',
-    image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785878/Screenshot_2025-09-25_at_09.37.48_h1j4a5.png',
-    color: '#FBBF24'
   }
 ]
 

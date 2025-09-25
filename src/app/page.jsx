@@ -33,6 +33,22 @@ function ProjectShowcase() {
       tags: ['Branding', '3D Visualization', 'Real Estate']
     },
     {
+      title: 'Wave',
+      subtitle: 'Secure messaging platform for seamless communication',
+      year: '2024',
+      category: 'Mobile App',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785861/Screenshot_2025-09-25_at_09.37.29_ruau4z.png',
+      tags: ['Messaging', 'Mobile', 'Security']
+    },
+    {
+      title: 'MobileVaxCertificate',
+      subtitle: 'Digital health app for vaccination certificate management',
+      year: '2024',
+      category: 'Health Tech',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785878/Screenshot_2025-09-25_at_09.37.48_h1j4a5.png',
+      tags: ['Healthcare', 'Apple Wallet', 'Digital ID']
+    },
+    {
       title: 'InHouse Studio Website',
       subtitle: 'UI/UX and front-end build for a Cape Town design firm',
       year: '2024',
