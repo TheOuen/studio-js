@@ -87,7 +87,7 @@ const PROJECTS = [
     description: 'Secure messaging platform for seamless communication',
     year: '2024',
     categories: ['development', 'ux'],
-    image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785861/Screenshot_2025-09-25_at_09.37.29_ruau4z.png',
+    image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785878/Screenshot_2025-09-25_at_09.37.48_h1j4a5.png',
     href: '/work/wave',
   },
   {
@@ -96,7 +96,7 @@ const PROJECTS = [
     description: 'Digital health app for vaccination certificate management',
     year: '2024',
     categories: ['development', 'ux'],
-    image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785878/Screenshot_2025-09-25_at_09.37.48_h1j4a5.png',
+    image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785861/Screenshot_2025-09-25_at_09.37.29_ruau4z.png',
     href: '/work/mobilevax',
   },
   {

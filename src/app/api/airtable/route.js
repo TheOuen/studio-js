@@ -1,13 +1,23 @@
 import { NextResponse } from 'next/server';
 import Airtable from 'airtable';
 
-// Configure Airtable
-const base = new Airtable({
-  apiKey: process.env.AIRTABLE_API_TOKEN
-}).base(process.env.AIRTABLE_BASE_ID || 'app0dxnWbpTs3hxFL');
+// Configure Airtable only if API key is present
+let base = null;
+if (process.env.AIRTABLE_API_TOKEN) {
+  base = new Airtable({
+    apiKey: process.env.AIRTABLE_API_TOKEN
+  }).base(process.env.AIRTABLE_BASE_ID || 'app0dxnWbpTs3hxFL');
+}
 
 export async function GET(request) {
   try {
+    if (!base) {
+      return NextResponse.json({
+        success: false,
+        error: 'Airtable is not configured'
+      }, { status: 503 });
+    }
+
     const { searchParams } = new URL(request.url);
     const table = searchParams.get('table') || 'Projects';
 
@@ -42,6 +52,13 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
+    if (!base) {
+      return NextResponse.json({
+        success: false,
+        error: 'Airtable is not configured'
+      }, { status: 503 });
+    }
+
     const body = await request.json();
     const { table = 'Projects', fields } = body;
 

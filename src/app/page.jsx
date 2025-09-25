@@ -37,7 +37,7 @@ function ProjectShowcase() {
       subtitle: 'Secure messaging platform for seamless communication',
       year: '2024',
       category: 'Mobile App',
-      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785861/Screenshot_2025-09-25_at_09.37.29_ruau4z.png',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785878/Screenshot_2025-09-25_at_09.37.48_h1j4a5.png',
       tags: ['Messaging', 'Mobile', 'Security']
     },
     {
@@ -45,7 +45,7 @@ function ProjectShowcase() {
       subtitle: 'Digital health app for vaccination certificate management',
       year: '2024',
       category: 'Health Tech',
-      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785878/Screenshot_2025-09-25_at_09.37.48_h1j4a5.png',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785861/Screenshot_2025-09-25_at_09.37.29_ruau4z.png',
       tags: ['Healthcare', 'Apple Wallet', 'Digital ID']
     },
     {
