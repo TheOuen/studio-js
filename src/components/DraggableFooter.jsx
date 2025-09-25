@@ -491,8 +491,8 @@ export function DraggableFooter() {
               <button 
                 onClick={() => setIsModalOpen(true)}
                 className="block w-24 h-24 lg:w-32 lg:h-32 bg-white hover:bg-gray-200 rounded-full flex items-center justify-center transform -rotate-12 cursor-grab select-none shadow-xl mb-8 transition-colors duration-300"
-                style={{ 
-                  transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(-12deg)`
+                style={{
+                  transform: `translate(8px, 2px) rotate(-12deg)`
                 }}
               >
                 <span className="text-lg lg:text-xl font-black text-black leading-tight text-center pointer-events-none">say<br/>hi!!</span>
@@ -502,10 +502,10 @@ export function DraggableFooter() {
               <button 
                 onClick={() => setIsModalOpen(true)}
                 className="block w-20 h-20 lg:w-24 lg:h-24 rounded-full cursor-grab select-none shadow-lg transition-all duration-300"
-                style={{ 
+                style={{
                   background: 'radial-gradient(circle at 30% 20%, #D2691E 20%, #8B4513 20%, #8B4513 40%, #D2691E 40%, #D2691E 60%, #8B4513 60%)',
                   backgroundSize: '12px 12px',
-                  transform: `translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px) rotate(${Math.random() * 20 - 10}deg)`
+                  transform: `translate(-5px, 8px) rotate(-5deg)`
                 }}
               >
                 <div className="w-full h-full rounded-full flex items-center justify-center pointer-events-none">
@@ -522,8 +522,8 @@ export function DraggableFooter() {
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-white hover:bg-gray-200 text-black font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-colors duration-300 shadow-lg transform cursor-grab select-none"
-                style={{ 
-                  transform: `translate(${Math.random() * 20 - 10}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
+                style={{
+                  transform: `translate(5px, 0px) rotate(1deg)`
                 }}
               >
                 <span className="pointer-events-none">Reach out</span>
@@ -533,8 +533,8 @@ export function DraggableFooter() {
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-gray-800 hover:bg-gray-700 text-white font-black text-xl lg:text-2xl px-8 lg:px-12 py-4 lg:py-6 rounded-full transition-colors duration-300 shadow-lg transform cursor-grab select-none"
-                style={{ 
-                  transform: `translate(${Math.random() * 30 - 15}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
+                style={{
+                  transform: `translate(-10px, 0px) rotate(-2deg)`
                 }}
               >
                 <span className="pointer-events-none">Let&apos;s chat</span>
@@ -544,8 +544,8 @@ export function DraggableFooter() {
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-black hover:bg-gray-900 text-white font-black text-2xl lg:text-3xl px-12 lg:px-16 py-6 lg:py-8 rounded-full transition-colors duration-300 shadow-xl transform cursor-grab select-none border-2 border-white"
-                style={{ 
-                  transform: `translate(${Math.random() * 25 - 12.5}px, 0px) rotate(${Math.random() * 4 - 2}deg)`
+                style={{
+                  transform: `translate(3px, 0px) rotate(1.5deg)`
                 }}
               >
                 <span className="pointer-events-none">Send a message</span>
@@ -557,8 +557,8 @@ export function DraggableFooter() {
               <button 
                 onClick={() => setIsModalOpen(true)}
                 className="w-24 h-24 lg:w-32 lg:h-32 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transform rotate-12 cursor-grab select-none shadow-xl transition-colors duration-300"
-                style={{ 
-                  transform: `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px) rotate(12deg)`
+                style={{
+                  transform: `translate(-8px, -3px) rotate(12deg)`
                 }}
               >
                 <svg className="w-12 h-12 lg:w-16 lg:h-16 text-white pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
