@@ -29,7 +29,7 @@ function ProjectShowcase() {
       subtitle: 'Property brand identity, brochure design, and 3D renders',
       year: '2024',
       category: 'Brand & 3D',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785049/Screenshot_2025-09-25_at_09.23.56_pcojik.png',
       tags: ['Branding', '3D Visualization', 'Real Estate']
     },
     {
@@ -37,7 +37,7 @@ function ProjectShowcase() {
       subtitle: 'UI/UX and front-end build for a Cape Town design firm',
       year: '2024',
       category: 'Web Design',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785120/Screenshot_2025-09-25_at_09.25.11_uyqhyt.png',
       tags: ['UI/UX', 'Frontend', 'Responsive']
     },
     {
@@ -45,7 +45,7 @@ function ProjectShowcase() {
       subtitle: 'Modern website for environmental organization',
       year: '2023',
       category: 'Environmental',
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
+      image: 'https://res.cloudinary.com/dwufoskyo/image/upload/v1758785082/Screenshot_2025-09-25_at_09.24.31_b9h38l.png',
       tags: ['Web Design', 'Environmental', 'NGO']
     }
   ];
