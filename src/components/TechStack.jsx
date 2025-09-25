@@ -141,8 +141,8 @@ export function TechStack() {
               </span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              We leverage cutting-edge technologies to build scalable, performant applications 
-              that drive business growth across Africa and beyond.
+              We leverage cutting-edge technologies to build scalable, performant applications
+              that drive business growth.
             </p>
           </div>
         </GSAPFadeUp>

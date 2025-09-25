@@ -2,12 +2,19 @@
 
 export function LandingHero() {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center bg-black">
-      {/* Large centered logo text */}
-      <div className="text-center">
-        <h1 className="text-[12vw] sm:text-[10vw] md:text-[9vw] lg:text-[8vw] xl:text-[7vw] font-black text-white leading-none tracking-tighter">
-          LANK CHILLED
+    <section className="relative min-h-screen flex items-center justify-center bg-black">
+      {/* Ship Products 10x Faster - Centered */}
+      <div className="text-center px-4">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.85] tracking-tight mb-6">
+          Ship Products
+          <br />
+          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            10x Faster
+          </span>
         </h1>
+        <p className="text-xl sm:text-2xl text-white/80 font-light max-w-3xl mx-auto">
+          We build world-class web applications that scale your business
+        </p>
       </div>
 
       {/* Scroll indicator */}

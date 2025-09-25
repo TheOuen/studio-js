@@ -4,19 +4,12 @@ import Link from 'next/link'
 import React from 'react'
 
 import { Container } from '@/components/Container'
-import { SafeImg } from '@/components/SafeImage'
 import { ImagePreloader } from '@/components/ImagePreloader'
-import { FadeIn } from '@/components/FadeIn'
-import { GSAPFadeUp, GSAPStaggerChildren, GSAPScaleOnHover, GSAPTextReveal, GSAPMorphOnScroll, GSAPParallax } from '@/components/GSAPAnimations'
+import { GSAPFadeUp, GSAPScaleOnHover } from '@/components/GSAPAnimations'
 import { Navbar } from '@/components/Navbar'
 import { LandingHero } from '@/components/LandingHero'
 import { DraggableFooter } from '@/components/DraggableFooter'
-import { AutoScrollCarousel } from '@/components/AutoScrollCarousel'
-import { StatsCarousel } from '@/components/StatsCarousel'
-
 import { CleanServices } from '@/components/CleanServices'
-import { HeroSection } from '@/components/HeroSection'
-import { ImageCarousel } from '@/components/ImageCarousel'
 import { TechStack } from '@/components/TechStack'
 
 function Services() {
@@ -245,12 +238,6 @@ function ProjectShowcase() {
 
 export default function Home() {
   // Critical images for preloading
-  const carouselImages = [
-    'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80',
-    'https://images.unsplash.com/photo-1661956602868-6ae368943878?w=800&q=80',
-    'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80'
-  ]
-
   const projectImages = [
     'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'
@@ -259,30 +246,21 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <ImagePreloader imageSources={[...carouselImages.slice(0, 3), ...projectImages.slice(0, 2)]} />
-      
-      {/* Landing Hero - Clean centered logo */}
-      <LandingHero />
-      
-      {/* Main Hero Section with content */}
-      <HeroSection />
-      
-      {/* Image Carousel */}
-      <ImageCarousel />
-      
-      {/* Tech Stack */}
-      <TechStack />
-      
+      <ImagePreloader imageSources={projectImages.slice(0, 2)} />
 
+      {/* First Section: Ship Products 10x Faster */}
+      <LandingHero />
+
+      {/* Second Section: Built with Modern Tech */}
+      <TechStack />
+
+      {/* Third Section: Services */}
       <Services />
 
-
-
-      <StatsCarousel />
-
+      {/* Fourth Section: Selected Work */}
       <ProjectShowcase />
 
-
+      {/* Final Section: Let's Work Together */}
       <section id="contact">
         <DraggableFooter />
       </section>
